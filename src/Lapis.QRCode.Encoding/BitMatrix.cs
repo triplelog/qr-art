@@ -58,7 +58,7 @@ namespace Lapis.QRCode.Encoding
                     other._values[r, c] = _values[r, c];
         }
 
-        private readonly bool[,] _values;
+        //private readonly bool[,] _values;
 
 
     }
@@ -132,7 +132,7 @@ namespace Lapis.QRCode.Encoding
                     other._values[r, c] = _values[r, c];
         }
 
-        private readonly bool[,] _values;
+        //private readonly bool[,] _values;
 
 
     }
