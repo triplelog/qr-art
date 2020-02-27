@@ -54,6 +54,7 @@ namespace Lapis.QrArt
                                 ErrorCorrectLevel = errcor
                             },
                             new Binarizer(),
+                            new Colorizer(),
                             new Merger(),
                             drawer
                         );
@@ -95,6 +96,7 @@ namespace Lapis.QrArt
                                 ErrorCorrectLevel = errcor
                             },
                             new Binarizer(),
+                            new Colorizer(),
                             new Merger(),
                             drawer,
                             // frames => new BitmapImage(frames.Select(f => f as BitmapFrame))
