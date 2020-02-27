@@ -15,7 +15,7 @@ namespace Lapis.QRCode.Art
 
     public class Binarizer : IBinarizer
     {
-        public BitMatrix Binarize(IRgb24BitmapBase bitmap, int rowCount, int columnCount)
+        public ColorMatrix Binarize(IRgb24BitmapBase bitmap, int rowCount, int columnCount)
         {
             if (bitmap == null)
                 throw new ArgumentNullException(nameof(bitmap));
