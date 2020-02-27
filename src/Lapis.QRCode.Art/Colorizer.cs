@@ -21,14 +21,14 @@ namespace Lapis.QRCode.Art
                 throw new ArgumentNullException(nameof(bitmap));
             var colorMatrix = new ColorMatrix(rowCount, columnCount);
 
-            int[,] rgb24s = Sample(bitmap, rowCount, columnCount);
-            for (int i = 0; i < rgb24s.GetLength(0); i++)
-            {
-                for (int j = 0; j < rgb24s.GetLength(1); j++)
-                {
-                    colorMatrix[i, j] = rgb24s[i, j];
-                }
-            }
+            //int[,] rgb24s = Sample(bitmap, rowCount, columnCount);
+            //for (int i = 0; i < rgb24s.GetLength(0); i++)
+            //{
+            //    for (int j = 0; j < rgb24s.GetLength(1); j++)
+            //    {
+           //         colorMatrix[i, j] = rgb24s[i, j];
+            //    }
+            //}
             return colorMatrix;
         }    
 
