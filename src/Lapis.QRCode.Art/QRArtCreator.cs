@@ -54,7 +54,7 @@ namespace Lapis.QRCode.Art
             }
             else {
             	Console.Out.WriteLine("no image");
-            	return BitMatrixDrawer.Draw(bitMatrix, bitMatrix);
+            	return bitMatrix;
             }
         }
     }

@@ -23,7 +23,7 @@ namespace Lapis.QRCode.Art
 
             int moduleCount = qrCode.Size;
             var result = new BitSquare(moduleCount * 3);
-            
+            backgroundMatrix.CopyTo(result);
 
             for (var r = 0; r < moduleCount; r += 1)
             {
