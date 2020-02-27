@@ -14,7 +14,7 @@ namespace Lapis.QRCode.Art
 
     public class Merger : IMerger
     {        
-        public BitSquare Merge(BitSquare qrCode, int typeNumber, ColorMatrix backgroundMatrix)
+        public ColorSquare Merge(BitSquare qrCode, int typeNumber, ColorMatrix backgroundMatrix)
         {
             if (qrCode == null)
                 throw new ArgumentNullException(nameof(qrCode));
