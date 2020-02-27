@@ -25,8 +25,8 @@ namespace Lapis.QRCode.Imaging.Drawing
             {
                 graph.Clear(ColorHelper.FromIntRgb24(Background));
                 //var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24(Foreground));
-                var foreBrush = new SolidBrush(Color.FromArgb(0,0,0));
-                var foreBrushB = new SolidBrush(Color.FromArgb(0,0,160));
+                var foreBrush = new SolidBrush(Color.FromArgb(40,40,40));
+                var foreBrushB = new SolidBrush(Color.FromArgb(0,0,120));
                 Console.Out.WriteLine(colorMatrix.RowCount);
                 Console.Out.WriteLine(colorMatrix.ColumnCount);
                 Console.Out.WriteLine(bitMatrix.RowCount);
@@ -39,7 +39,7 @@ namespace Lapis.QRCode.Imaging.Drawing
                         {
                             var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            if (colorMatrix[r,c])
+                            if (!colorMatrix[r,c])
                             {
                             	graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
                             }
