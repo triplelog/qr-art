@@ -15,7 +15,7 @@ namespace Lapis.QRCode.Art
             IBinarizer binarizer, IColorizer colorizer, IMerger merger,
             IBitMatrixDrawer bitMatrixDrawer,
             Func<IReadOnlyList<IRgb24BitmapFrame>, IRgb24BitmapBase> frameMerger)
-            : base(qrCodeEncoder, binarizer, merger, bitMatrixDrawer)
+            : base(qrCodeEncoder, binarizer, colorizer, merger, bitMatrixDrawer)
         {
             FrameMerger = frameMerger;
         }
