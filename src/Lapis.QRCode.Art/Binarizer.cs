@@ -56,7 +56,10 @@ namespace Lapis.QRCode.Art
                     int color = bitmap.GetPixel(x, y);
                     rgb24s[j, i] = color;
                 }
-                Console.WriteLine(Color.red(rgb24s[50, i]));
+                //int r = (rgb24s[j, i] & 0xFF0000) >> 16;
+                //int g = (rgb24s[j, i] & 0xFF00) >> 8;
+                //int b = rgb24s[j, i] & 0xFF;
+                Console.WriteLine((rgb24s[50, i] & 0xFF0000) >> 16);
             }
             return rgb24s;
         }
