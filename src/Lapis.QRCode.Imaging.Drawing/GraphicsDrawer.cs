@@ -72,7 +72,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 								bl = 255 - (255-bl)/3;
 								
                             	var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
-                            	//graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
+                            	graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
                             }
                         }
                     }
