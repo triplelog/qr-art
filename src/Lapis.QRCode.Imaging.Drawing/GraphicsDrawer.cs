@@ -24,7 +24,8 @@ namespace Lapis.QRCode.Imaging.Drawing
             using (var graph = Graphics.FromImage(bitmap))
             {
                 graph.Clear(ColorHelper.FromIntRgb24(Background));
-                var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24(Foreground));
+                //var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24(Foreground));
+                var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24("#555555"));
                 for (var r = 0; r < rowCount; r += 1)
                 {
                     for (var c = 0; c < columnCount; c += 1)
