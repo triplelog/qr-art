@@ -10,16 +10,16 @@ namespace Lapis.QRCode.Art
 {
     public interface IBinarizer
     {
-        ColorMatrix Binarize(IRgb24BitmapBase bitmap, int rowCount, int columnCount);
+        BitMatrix Binarize(IRgb24BitmapBase bitmap, int rowCount, int columnCount);
     }
 
     public class Binarizer : IBinarizer
     {
-        public ColorMatrix Binarize(IRgb24BitmapBase bitmap, int rowCount, int columnCount)
+        public BitMatrix Binarize(IRgb24BitmapBase bitmap, int rowCount, int columnCount)
         {
             if (bitmap == null)
                 throw new ArgumentNullException(nameof(bitmap));
-            var colorMatrix = new ColorMatrix(rowCount, columnCount);
+            var bitMatrix = new BitMatrix(rowCount, columnCount);
 
             int[,] rgb24s = Sample(bitmap, rowCount, columnCount);
             int[,] grays = ToGrays(rgb24s);
@@ -29,15 +29,10 @@ namespace Lapis.QRCode.Art
             {
                 for (int j = 0; j < grays.GetLength(1); j++)
                 {
-                	if (grays[i, j] < threhold){
-                    	colorMatrix[i, j] = grays[i, j];
-                    }
-                    else {
-                    	colorMatrix[i, j] = -1;
-                    }
+                    bitMatrix[i, j] = grays[i, j] < threhold;
                 }
             }
-            return colorMatrix;
+            return bitMatrix;
         }    
 
         private int[,] Sample(IRgb24BitmapBase bitmap, int rowCount, int columnCount)
@@ -56,10 +51,6 @@ namespace Lapis.QRCode.Art
                     int color = bitmap.GetPixel(x, y);
                     rgb24s[j, i] = color;
                 }
-                //int r = (rgb24s[j, i] & 0xFF0000) >> 16;
-                //int g = (rgb24s[j, i] & 0xFF00) >> 8;
-                //int b = rgb24s[j, i] & 0xFF;
-                //Console.WriteLine((rgb24s[50, i] & 0xFF0000) >> 16);
             }
             return rgb24s;
         }
