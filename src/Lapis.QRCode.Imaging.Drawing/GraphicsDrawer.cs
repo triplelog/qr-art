@@ -38,7 +38,7 @@ namespace Lapis.QRCode.Imaging.Drawing
                             var y = Margin + r * CellSize;
                             if (colorMatrix[r,c]<0)
                             {
-                            	graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
+                            	//graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
                             }
                             else {
                             	int re = (colorMatrix[r,c] & 0xFF0000) >> 16;
@@ -54,7 +54,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 									bl = bl/2;
 								}
                             	var foreBrushCustom = new SolidBrush(Color.FromArgb(re,0,0));
-                            	graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
+                            	//graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
                             }
                         }
                         else {
@@ -62,7 +62,7 @@ namespace Lapis.QRCode.Imaging.Drawing
                             var y = Margin + r * CellSize;
                             if (colorMatrix[r,c]<0)
                             {
-                            	graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
+                            	//graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
                             }
                             else {
                             	int re = (colorMatrix[r,c] & 0xFF0000) >> 16;
@@ -78,7 +78,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 									bl = 255 - (255-bl)/2;
 								}
                             	var foreBrushCustom = new SolidBrush(Color.FromArgb(0,0,bl));
-                            	graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
+                            	//graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
                             }
                         }
                     }
