@@ -17,7 +17,7 @@ namespace Lapis.QRCode.Imaging
 
         int Background { get; set; }
 
-        IImage Draw(BitMatrix bitMatrix);
+        IImage Draw(BitMatrix bitMatrix, BitMatrix colorMatrix);
     }
 
     public abstract class BitMatrixDrawerBase : IBitMatrixDrawer
