@@ -9,12 +9,12 @@ namespace Lapis.QRCode.Art
 {
     public interface IMerger
     {
-        BitSquare Merge(BitSquare qrCode, int typeNumber, BitMatrix backgroundMatrix);
+        BitSquare Merge(BitSquare qrCode, int typeNumber, ColorMatrix backgroundMatrix);
     }
 
     public class Merger : IMerger
     {        
-        public BitSquare Merge(BitSquare qrCode, int typeNumber, BitMatrix backgroundMatrix)
+        public BitSquare Merge(BitSquare qrCode, int typeNumber, ColorMatrix backgroundMatrix)
         {
             if (qrCode == null)
                 throw new ArgumentNullException(nameof(qrCode));
