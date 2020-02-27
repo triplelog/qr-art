@@ -58,7 +58,7 @@ namespace Lapis.QRCode.Encoding
                     other._values[r, c] = _values[r, c];
         }
         
-        public void CopyTo(BitMatrix other)
+        public void CopyTo(BitSquare other)
         {
             for (int r = 0; r < RowCount && r < other.RowCount; r++)
                 for (int c = 0; c < ColumnCount && c < other.ColumnCount; c++)
