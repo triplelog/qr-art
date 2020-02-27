@@ -44,17 +44,14 @@ namespace Lapis.QRCode.Imaging.Drawing
                             	int re = (colorMatrix[r,c] & 0xFF0000) >> 16;
 								int gr = (colorMatrix[r,c] & 0xFF00) >> 8;
 								int bl = colorMatrix[r,c] & 0xFF;
-								if (re > 128){
-									re = re/2;
-								}
-								if (gr > 128){
-									gr = gr/2;
-								}
-								if (bl > 128){
-									bl = bl/2;
-								}
-                            	var foreBrushCustom = new SolidBrush(Color.FromArgb(re,0,0));
-                            	//graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
+								
+								//Darken uniformly
+								re = re/4;
+								gr = gr/4;
+								bl = bl/4;
+								
+                            	var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
+                            	graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
                             }
                         }
                         else {
