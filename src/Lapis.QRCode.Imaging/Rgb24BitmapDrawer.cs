@@ -9,7 +9,7 @@ namespace Lapis.QRCode.Imaging
 {
     public class Rgb24BitmapDrawer : BitMatrixDrawerBase
     {
-        public override IImage Draw(BitMatrix bitMatrix)
+        public override IImage Draw(BitMatrix bitMatrix, BitMatrix colorMatrix)
         {
             if (bitMatrix == null)
                 throw new ArgumentNullException(nameof(bitMatrix));
