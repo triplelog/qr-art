@@ -17,19 +17,22 @@ namespace Lapis.QRCode.Art
     {
         public QRArtCreator(
             IQRCodeEncoder qrCodeEncoder,
-            IBinarizer binarizer, IMerger merger,
+            IBinarizer binarizer, IColorizer colorizer, IMerger merger,
             IBitMatrixDrawer bitMatrixDrawer)
         {
             if (qrCodeEncoder == null)
                 throw new ArgumentNullException(nameof(qrCodeEncoder));
             if (binarizer == null)
                 throw new ArgumentNullException(nameof(binarizer));
+            if (colorizer == null)
+                throw new ArgumentNullException(nameof(colorizer));
             if (merger == null)
                 throw new ArgumentNullException(nameof(merger));
             if (bitMatrixDrawer == null)
                 throw new ArgumentNullException(nameof(bitMatrixDrawer));
             QRCodeEncoder = qrCodeEncoder;
             Binarizer = binarizer;
+            Colorizer = colorizer;
             Merger = merger;
             BitMatrixDrawer = bitMatrixDrawer;
         }
@@ -51,8 +54,8 @@ namespace Lapis.QRCode.Art
             {
                 int moduleCount = bitMatrix.Size;
                 var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
-                //var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
-                var imgColorMatrix = new ColorSquare(moduleCount * 3);
+                var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
+                //var imgColorMatrix = new ColorSquare(moduleCount * 3);
                 bitMatrix = Merger.Merge(bitMatrix, QRCodeEncoder.TypeNumber, imgBitMatrix);
                 return BitMatrixDrawer.Draw(bitMatrix, imgColorMatrix);
             }
