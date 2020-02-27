@@ -19,7 +19,7 @@ namespace Lapis.QRCode.Art
         {
             if (bitmap == null)
                 throw new ArgumentNullException(nameof(bitmap));
-            var bitMatrix = new BitMatrix(rowCount, columnCount);
+            var colorMatrix = new ColorMatrix(rowCount, columnCount);
 
             int[,] rgb24s = Sample(bitmap, rowCount, columnCount);
             int[,] grays = ToGrays(rgb24s);
@@ -29,10 +29,10 @@ namespace Lapis.QRCode.Art
             {
                 for (int j = 0; j < grays.GetLength(1); j++)
                 {
-                    bitMatrix[i, j] = grays[i, j] < threhold;
+                    colorMatrix[i, j] = grays[i, j] < threhold;
                 }
             }
-            return bitMatrix;
+            return colorMatrix;
         }    
 
         private int[,] Sample(IRgb24BitmapBase bitmap, int rowCount, int columnCount)
