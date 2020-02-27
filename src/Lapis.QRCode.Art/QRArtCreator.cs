@@ -49,7 +49,8 @@ namespace Lapis.QRCode.Art
             {
                 int moduleCount = bitMatrix.Size;
                 var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
-                var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
+                //var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
+                var imgColorMatrix = new ColorSquare(moduleCount * 3);
                 bitMatrix = Merger.Merge(bitMatrix, QRCodeEncoder.TypeNumber, imgBitMatrix);
                 return BitMatrixDrawer.Draw(bitMatrix, imgColorMatrix);
             }
