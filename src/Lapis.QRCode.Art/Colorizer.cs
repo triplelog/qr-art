@@ -17,8 +17,10 @@ namespace Lapis.QRCode.Art
     {
         public ColorMatrix Colorize(IRgb24BitmapBase bitmap, int rowCount, int columnCount)
         {
-            if (bitmap == null)
-                throw new ArgumentNullException(nameof(bitmap));
+            if (bitmap == null){
+            	Console.WriteLine("no image");
+                //throw new ArgumentNullException(nameof(bitmap));
+            }
             var colorMatrix = new ColorMatrix(rowCount, columnCount);
 
             //int[,] rgb24s = Sample(bitmap, rowCount, columnCount);
