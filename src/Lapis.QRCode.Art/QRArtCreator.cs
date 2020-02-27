@@ -55,7 +55,7 @@ namespace Lapis.QRCode.Art
                 Console.Out.WriteLine(bitMatrix.ColumnCount);
                 bitMatrix = Merger.Merge(bitMatrix, QRCodeEncoder.TypeNumber, imgMatrix);
             }
-            return BitMatrixDrawer.Draw(bitMatrix, bitMatrix);
+            return BitMatrixDrawer.Draw(bitMatrix, imgMatrix);
         }
     }
 }
