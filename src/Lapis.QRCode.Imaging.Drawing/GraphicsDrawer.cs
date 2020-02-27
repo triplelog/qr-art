@@ -10,7 +10,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 {
     public class GraphicsDrawer : BitMatrixDrawerBase
     {
-        public override IImage Draw(BitMatrix bitMatrix)
+        public override IImage Draw(BitMatrix bitMatrix, BitMatrix colorMatrix)
         {
             if (bitMatrix == null)
                 throw new ArgumentNullException(nameof(bitMatrix));
