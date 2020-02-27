@@ -35,11 +35,11 @@ namespace Lapis.QRCode.Imaging.Drawing
                 {
                     for (var c = 0; c < columnCount; c += 1)
                     {
-                        if (2==2)
+                        if (bitMatrix[r, c])
                         {
                             var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            if (2==2)
+                            if (colorMatrix[r,c])
                             {
                             	graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
                             }
