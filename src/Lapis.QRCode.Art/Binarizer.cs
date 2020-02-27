@@ -30,10 +30,10 @@ namespace Lapis.QRCode.Art
                 for (int j = 0; j < grays.GetLength(1); j++)
                 {
                 	if (grays[i, j] < threhold){
-                    	colorMatrix[i, j] = 2;
+                    	colorMatrix[i, j] = grays[i, j];
                     }
                     else {
-                    	colorMatrix[i, j] = 0;
+                    	colorMatrix[i, j] = -1;
                     }
                 }
             }
@@ -59,7 +59,7 @@ namespace Lapis.QRCode.Art
                 //int r = (rgb24s[j, i] & 0xFF0000) >> 16;
                 //int g = (rgb24s[j, i] & 0xFF00) >> 8;
                 //int b = rgb24s[j, i] & 0xFF;
-                Console.WriteLine((rgb24s[50, i] & 0xFF0000) >> 16);
+                //Console.WriteLine((rgb24s[50, i] & 0xFF0000) >> 16);
             }
             return rgb24s;
         }

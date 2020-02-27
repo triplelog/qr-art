@@ -36,12 +36,14 @@ namespace Lapis.QRCode.Imaging.Drawing
                         {
                             var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            if (colorMatrix[r,c]<2)
+                            if (colorMatrix[r,c]<0)
                             {
                             	graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
                             }
                             else {
-                            	graph.FillRectangle(foreBrushB, x, y, CellSize, CellSize);
+                            	if (c < 60 && c> 50){Console.WriteLine(colorMatrix[r,c]);}
+                            	var foreBrushCustom = new SolidBrush(Color.FromArgb(0,0,colorMatrix[r,c]));
+                            	graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
                             }
                         }
                     }

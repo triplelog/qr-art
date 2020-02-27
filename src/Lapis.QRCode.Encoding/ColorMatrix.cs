@@ -62,7 +62,7 @@ namespace Lapis.QRCode.Encoding
         {
             for (int r = 0; r < RowCount && r < other.RowCount; r++){
                 for (int c = 0; c < ColumnCount && c < other.ColumnCount; c++){
-                	if (_values[r, c]>0){
+                	if (_values[r, c] >= 0){
                     	other._values[r, c] = true;
                     }
                     else {
