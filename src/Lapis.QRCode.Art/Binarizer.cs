@@ -30,7 +30,7 @@ namespace Lapis.QRCode.Art
                 for (int j = 0; j < grays.GetLength(1); j++)
                 {
                 	if (grays[i, j] < threhold){
-                    	colorMatrix[i, j] = 1;
+                    	colorMatrix[i, j] = 2;
                     }
                     else {
                     	colorMatrix[i, j] = 0;

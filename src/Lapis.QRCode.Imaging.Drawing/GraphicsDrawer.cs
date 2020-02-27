@@ -26,16 +26,17 @@ namespace Lapis.QRCode.Imaging.Drawing
                 graph.Clear(ColorHelper.FromIntRgb24(Background));
                 //var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24(Foreground));
                 var foreBrush = new SolidBrush(Color.FromArgb(40,40,40));
-                var foreBrushB = new SolidBrush(Color.FromArgb(0,0,120));
+                var foreBrushB = new SolidBrush(Color.FromArgb(0,0,60));
                 for (var r = 0; r < rowCount; r += 1)
                 {
+                	Console.writeLine(colorMatrix[r,50]);
                     for (var c = 0; c < columnCount; c += 1)
                     {
                         if (bitMatrix[r, c])
                         {
                             var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            if (colorMatrix[r,c]<1)
+                            if (colorMatrix[r,c]<2)
                             {
                             	graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
                             }
