@@ -15,10 +15,10 @@ namespace Lapis.QRCode.Encoding
                 throw new ArgumentOutOfRangeException(nameof(rowCount));
             if (columnCount <= 0)
                 throw new ArgumentOutOfRangeException(nameof(columnCount));
-            _values = new bool[rowCount, columnCount];
+            _values = new int[rowCount, columnCount];
         }
 
-        public ColorMatrix(int rowCount, int columnCount, bool value)
+        public ColorMatrix(int rowCount, int columnCount, int value)
             : this(rowCount, columnCount)
         {
             SetAll(value);
@@ -28,20 +28,20 @@ namespace Lapis.QRCode.Encoding
 
         public int ColumnCount => _values.GetLength(1);
 
-        public bool this[int row, int column]
+        public int this[int row, int column]
         {
             get { return _values[row, column]; }
             set { _values[row, column] = value; }
         }
 
-        public void SetAll(bool value)
+        public void SetAll(int value)
         {
             for (int r = 0; r < RowCount; r++)
                 for (int c = 0; c < ColumnCount; c++)
                     _values[r, c] = value;
         }
 
-        public void Fill(int rowStart, int columnStart, int rowLength, int columnLength, bool value)
+        public void Fill(int rowStart, int columnStart, int rowLength, int columnLength, int value)
         {
             for (var r = rowStart; r < rowStart + rowLength && r < RowCount; r++)
             {
@@ -60,12 +60,19 @@ namespace Lapis.QRCode.Encoding
         
         public void CopyTo(BitSquare other)
         {
-            for (int r = 0; r < RowCount && r < other.RowCount; r++)
-                for (int c = 0; c < ColumnCount && c < other.ColumnCount; c++)
-                    other._values[r, c] = _values[r, c];
+            for (int r = 0; r < RowCount && r < other.RowCount; r++){
+                for (int c = 0; c < ColumnCount && c < other.ColumnCount; c++){
+                	if (_values[r, c]>0){
+                    	other._values[r, c] = true;
+                    }
+                    else {
+                    	other._values[r, c] = false;
+                    }
+                }
+            }
         }
 
-        public bool[,] _values;
+        public int[,] _values;
 
 
     }

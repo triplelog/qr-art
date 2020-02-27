@@ -35,7 +35,7 @@ namespace Lapis.QRCode.Imaging.Drawing
                         {
                             var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            if (!colorMatrix[r,c])
+                            if (colorMatrix[r,c]<1)
                             {
                             	graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
                             }
