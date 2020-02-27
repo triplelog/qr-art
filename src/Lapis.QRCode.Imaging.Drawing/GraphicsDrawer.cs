@@ -41,9 +41,11 @@ namespace Lapis.QRCode.Imaging.Drawing
                             	graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
                             }
                             else {
-                            	//if (c < 57 && c> 53){Console.WriteLine(colorMatrix[r,c]);}
-                            	//var foreBrushCustom = new SolidBrush(Color.FromArgb(0,0,colorMatrix[r,c]));
-                            	graph.FillRectangle(foreBrushB, x, y, CellSize, CellSize);
+                            	int re = (colorMatrix[r,c] & 0xFF0000) >> 16;
+								int gr = (colorMatrix[r,c] & 0xFF00) >> 8;
+								int bl = colorMatrix[r,c] & 0xFF;
+                            	var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
+                            	graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
                             }
                         }
                     }

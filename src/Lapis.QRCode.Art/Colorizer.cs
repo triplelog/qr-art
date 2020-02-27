@@ -28,9 +28,6 @@ namespace Lapis.QRCode.Art
                 for (int j = 0; j < rgb24s.GetLength(1); j++)
                 {
                     colorMatrix[i, j] = rgb24s[i, j];
-                    if (rgb24s[i, j]>0){
-                    	Console.WriteLine(rgb24s[i, j]);
-                    }
                 }
             }
             return colorMatrix;
