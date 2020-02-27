@@ -103,7 +103,8 @@ namespace Lapis.QrArt
                         {
                             drawer.CellSize = cell;
                             drawer.Margin = margin;
-                            drawer.Foreground = foregd;
+                            drawer.Foreground2 = foregd;
+                            drawer.Foreground = "#9C1C00";
                             drawer.Background = backgd;
                         }
 
