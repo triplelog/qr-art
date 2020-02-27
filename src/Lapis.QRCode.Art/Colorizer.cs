@@ -18,19 +18,21 @@ namespace Lapis.QRCode.Art
         public ColorMatrix Colorize(IRgb24BitmapBase bitmap, int rowCount, int columnCount)
         {
             if (bitmap == null){
-            	Console.WriteLine("no image");
-                //throw new ArgumentNullException(nameof(bitmap));
+                throw new ArgumentNullException(nameof(bitmap));
             }
             var colorMatrix = new ColorMatrix(rowCount, columnCount);
 
-            //int[,] rgb24s = Sample(bitmap, rowCount, columnCount);
-            //for (int i = 0; i < rgb24s.GetLength(0); i++)
-            //{
-            //    for (int j = 0; j < rgb24s.GetLength(1); j++)
-            //    {
-           //         colorMatrix[i, j] = rgb24s[i, j];
-            //    }
-            //}
+            int[,] rgb24s = Sample(bitmap, rowCount, columnCount);
+            for (int i = 0; i < rgb24s.GetLength(0); i++)
+            {
+                for (int j = 0; j < rgb24s.GetLength(1); j++)
+                {
+                    colorMatrix[i, j] = rgb24s[i, j];
+                    if (rgb24s[i, j]>0){
+                    	Console.WriteLine(rgb24s[i, j]);
+                    }
+                }
+            }
             return colorMatrix;
         }    
 
