@@ -39,13 +39,7 @@ namespace Lapis.QrArt
             try
             {
                 var bmp = Bitmap.FromFile(imagePath) as Bitmap;
-                var myImageCodecInfo = GetEncoderInfo("image/jpeg");
-				var myEncoder = Encoder.Quality;
-					 
-				var myEncoderParameters = new EncoderParameters(1);
-				var myEncoderParameter = new EncoderParameter(myEncoder, 25L);
-				myEncoderParameters.Param[0] = myEncoderParameter;
-				bmp.Save("static/newbmp.jpg", myImageCodecInfo, myEncoderParameters);
+                bmp.Save("static/newbmp.png",ImageFormat.Png);
                 bitmap = new BitmapFrame(bmp);
                 return true;
             }
