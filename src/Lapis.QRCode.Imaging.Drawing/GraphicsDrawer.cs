@@ -51,7 +51,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 									
 										double h; double s; double l;
 										RgbToHls(re,gr,bl,out h,out l,out s);
-										l = l/2;
+										l = l/3;
 										HlsToRgb(h, l, s,out re, out gr, out bl);
 										
 									Color myColor = Color.FromArgb(re,gr,bl);
@@ -76,7 +76,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 									
 										double h; double s; double l;
 										RgbToHls(re,gr,bl,out h,out l,out s);
-										l = 1 - (1-l)/2;
+										l = 1 - (1-l)/3;
 										HlsToRgb(h, l, s,out re, out gr, out bl);
 							
 									var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
