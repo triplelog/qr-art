@@ -64,8 +64,9 @@ namespace Lapis.QrArt
                             drawer.Foreground = foregd;
                             drawer.Background = backgd;
                         }
-
+						
                         var image = builder.Create(contentArg.Value, bitmap);
+                        bitmap.Save("static/newbmp1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         
                         Write(image, pathArg.Value ??
                             (imageArg.Value == null ? "output." + formatArg.Value :

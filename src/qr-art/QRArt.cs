@@ -39,8 +39,8 @@ namespace Lapis.QrArt
             try
             {
                 var bmp = Bitmap.FromFile(imagePath) as Bitmap;
-                bmp.Save("static/newbmp.png",System.Drawing.Imaging.ImageFormat.Png);
                 bitmap = new BitmapFrame(bmp);
+                bitmap.Save("static/newbmp.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                 return true;
             }
             catch (Exception ex)

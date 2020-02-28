@@ -53,6 +53,7 @@ namespace Lapis.QRCode.Art
             if (image != null)
             {
                 int moduleCount = bitMatrix.Size;
+                image.Save("static/newbmp2.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                 var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
                 //var imgColorMatrix = new ColorSquare(moduleCount * 3);
