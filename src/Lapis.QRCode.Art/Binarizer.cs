@@ -24,13 +24,13 @@ namespace Lapis.QRCode.Art
             int[,] rgb24s = Sample(bitmap, rowCount, columnCount);
             int[,] grays = ToGrays(rgb24s);
             int[] histGram = GetHistGram(grays);
-            int threhold = GetThreshold(histGram);
-            Console.WriteLine(threhold);
+            int threshold = GetThreshold(histGram);
+            Console.WriteLine('Threshold:' + threshold);
             for (int i = 0; i < grays.GetLength(0); i++)
             {
                 for (int j = 0; j < grays.GetLength(1); j++)
                 {
-                    bitMatrix[i, j] = grays[i, j] < threhold*3/2;
+                    bitMatrix[i, j] = grays[i, j] < threshold;
                 }
             }
             return bitMatrix;
