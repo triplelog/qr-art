@@ -154,6 +154,16 @@ namespace Lapis.QRCode.Imaging.Drawing
 			g = (int)(double_g * 255.0);
 			b = (int)(double_b * 255.0);
 		}    
+		private static double QqhToRgb(double q1, double q2, double hue)
+		{
+			if (hue > 360) hue -= 360;
+			else if (hue < 0) hue += 360;
+
+			if (hue < 60) return q1 + (q2 - q1) * hue / 60;
+			if (hue < 180) return q2;
+			if (hue < 240) return q1 + (q2 - q1) * (240 - hue) / 60;
+			return q1;
+		}
         
     }
     
