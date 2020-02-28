@@ -37,7 +37,7 @@ namespace Lapis.QRCode.Art
         {
             float height = Convert.ToSingle(bitmap.Height);
             float width = Convert.ToSingle(bitmap.Width);
-            Console.WriteLine(width);
+            Console.WriteLine(columnLength);
             float rowLength = Convert.ToSingle(rowCount);
             float columnLength = Convert.ToSingle(columnCount);
             int[,] rgb24s = new int[rowCount, columnCount];
