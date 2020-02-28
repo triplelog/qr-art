@@ -25,7 +25,6 @@ namespace Lapis.QRCode.Art
             int[,] grays = ToGrays(rgb24s);
             int[] histGram = GetHistGram(grays);
             int threshold = GetThreshold(histGram);
-            threshold = 10;
             Console.WriteLine("Threshold:" + threshold);
             for (int i = 0; i < grays.GetLength(0); i++)
             {
