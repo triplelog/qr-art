@@ -39,7 +39,7 @@ namespace Lapis.QrArt
             try
             {
                 var bmp = Bitmap.FromFile(imagePath) as Bitmap;
-                bmp.Save("newbmp.jpg");
+                bmp.Save("static/newbmp.png");
                 bitmap = new BitmapFrame(bmp);
                 return true;
             }
