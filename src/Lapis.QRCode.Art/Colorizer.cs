@@ -43,16 +43,13 @@ namespace Lapis.QRCode.Art
             Console.WriteLine(columnLength);
             Console.WriteLine(width);
             int[,] rgb24s = new int[rowCount, columnCount];
-            //for (int i = 0; i < columnCount; i++)
-            for (int i = 0; i < 25; i++)
+            for (int i = 0; i < columnCount; i++)
             {
-                //for (int j = 0; j < rowCount; j++)
-                for (int j = 0; j < 25; j++)
+                for (int j = 0; j < rowCount; j++)
                 {
                     int x = Convert.ToInt32(i);
                     int y = Convert.ToInt32(j);
                     int color = bitmap.GetPixel(x, y);
-                    Console.WriteLine(i + ", " + j + ": " + color);
                     rgb24s[j, i] = color;
                 }
             }
