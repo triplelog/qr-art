@@ -48,7 +48,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 									
 										double h; double s; double l;
 										RgbToHls(re,gr,bl,out h,out l,out s);
-										l = l/2;
+										l = Math.Pow(l/10,.5);
 										s = 1 - (1-s)/6;
 										HlsToRgb(h, l, s,out re, out gr, out bl);
 										
