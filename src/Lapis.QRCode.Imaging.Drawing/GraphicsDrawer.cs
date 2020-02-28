@@ -20,7 +20,7 @@ namespace Lapis.QRCode.Imaging.Drawing
             int imageHeight = CellSize * rowCount + Margin * 2;
             int imageWidth = CellSize * rowCount + Margin * 2;
             var bitmap = new Bitmap(imageHeight, imageWidth);
-
+			Console.WriteLine(CellSize);
             using (var graph = Graphics.FromImage(bitmap))
             {
                 graph.Clear(ColorHelper.FromIntRgb24(Background));
