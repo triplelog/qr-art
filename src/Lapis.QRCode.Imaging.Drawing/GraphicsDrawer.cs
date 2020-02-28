@@ -21,6 +21,7 @@ namespace Lapis.QRCode.Imaging.Drawing
             int imageWidth = CellSize * rowCount + Margin * 2;
             var bitmap = new Bitmap(imageHeight, imageWidth);
 			Console.WriteLine(CellSize);
+			Console.WriteLine(imageHeight);
             using (var graph = Graphics.FromImage(bitmap))
             {
                 graph.Clear(ColorHelper.FromIntRgb24(Background));
@@ -36,44 +37,40 @@ namespace Lapis.QRCode.Imaging.Drawing
                         {
                             var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            if (colorMatrix[r,c]<0)
-                            {
-                            	//graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
-                            }
-                            else {
-                            	int re = (colorMatrix[r,c] & 0xFF0000) >> 16;
-								int gr = (colorMatrix[r,c] & 0xFF00) >> 8;
-								int bl = colorMatrix[r,c] & 0xFF;
-								
-								//Darken uniformly
-								re = re/5;
-								gr = gr/5;
-								bl = bl/5;
-								
-                            	var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
-                            	graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
-                            }
+                            for (var cmi = 0;cmi<2;cmi++){
+                            	for (var cmj = 0;cmj<2;cmj++){
+									int re = (colorMatrix[2*r+cmi,2*c+cmj] & 0xFF0000) >> 16;
+									int gr = (colorMatrix[2*r+cmi,2*c+cmj] & 0xFF00) >> 8;
+									int bl = colorMatrix[2*r+cmi,2*c+cmj] & 0xFF;
+							
+									//Darken uniformly
+									re = re/5;
+									gr = gr/5;
+									bl = bl/5;
+							
+									var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
+									graph.FillRectangle(foreBrushCustom, x, y, 1,1);
+								}
+							}
                         }
                         else {
                         	var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            if (colorMatrix[r,c]<0)
-                            {
-                            	//graph.FillRectangle(foreBrush, x, y, CellSize, CellSize);
-                            }
-                            else {
-                            	int re = (colorMatrix[r,c] & 0xFF0000) >> 16;
-								int gr = (colorMatrix[r,c] & 0xFF00) >> 8;
-								int bl = colorMatrix[r,c] & 0xFF;
-								
-								//Lighten Uniformly
-								re = 255 - (255-re)/5;
-								gr = 255 - (255-gr)/5;
-								bl = 255 - (255-bl)/5;
-								
-                            	var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
-                            	graph.FillRectangle(foreBrushCustom, x, y, CellSize, CellSize);
-                            }
+                            for (var cmi = 0;cmi<2;cmi++){
+                            	for (var cmj = 0;cmj<2;cmj++){
+									int re = (colorMatrix[2*r+cmi,2*c+cmj] & 0xFF0000) >> 16;
+									int gr = (colorMatrix[2*r+cmi,2*c+cmj] & 0xFF00) >> 8;
+									int bl = colorMatrix[2*r+cmi,2*c+cmj] & 0xFF;
+							
+									//Darken uniformly
+									re = 255 - (255-re)/5;
+									gr = 255 - (255-gr)/5;
+									bl = 255 - (255-bl)/5;
+							
+									var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
+									graph.FillRectangle(foreBrushCustom, x, y, 1,1);
+								}
+							}
                         }
                     }
                 }
