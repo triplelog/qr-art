@@ -44,10 +44,10 @@ namespace Lapis.QRCode.Art
             Console.WriteLine(width);
             int[,] rgb24s = new int[rowCount, columnCount];
             //for (int i = 0; i < columnCount; i++)
-            for (int i = 62; i < 84; i++)
+            for (int i = 0; i < 25; i++)
             {
                 //for (int j = 0; j < rowCount; j++)
-                for (int j = 0; j < 10; j++)
+                for (int j = 0; j < 25; j++)
                 {
                     int x = Convert.ToInt32(i);
                     int y = Convert.ToInt32(j);

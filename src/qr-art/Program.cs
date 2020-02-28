@@ -66,7 +66,7 @@ namespace Lapis.QrArt
                         }
 						
                         var image = builder.Create(contentArg.Value, bitmap);
-                        bitmap.Save("static/newbmp1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
+                        //bitmap.Save("static/newbmp1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         
                         Write(image, pathArg.Value ??
                             (imageArg.Value == null ? "output." + formatArg.Value :
