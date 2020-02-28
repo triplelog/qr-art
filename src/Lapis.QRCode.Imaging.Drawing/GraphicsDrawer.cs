@@ -47,7 +47,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 									re = re/6;
 									gr = gr/6;
 									bl = bl/6;
-									var myColor = Color.FromArgb(re,gr,bl);
+									Color myColor = Color.FromArgb(re,gr,bl);
 									if ( r<55 && r>50 && c <55 && c>50){
 									
 										Console.WriteLine(myColor.getHue());
