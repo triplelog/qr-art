@@ -32,7 +32,7 @@ namespace Lapis.QRCode.Imaging
             }
         }
 
-        private int _cellSize = 2;
+        private int _cellSize = 3;
 
         public int Margin
         { 
