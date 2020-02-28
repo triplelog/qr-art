@@ -45,13 +45,10 @@ namespace Lapis.QRCode.Imaging.Drawing
 									int bl = colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF;
 							
 									//Darken uniformly
-									//re = re/6;
-									//gr = gr/6;
-									//bl = bl/6;
 									
 										double h; double s; double l;
 										RgbToHls(re,gr,bl,out h,out l,out s);
-										l = l/5;
+										l = l/6;
 										HlsToRgb(h, l, s,out re, out gr, out bl);
 										
 									Color myColor = Color.FromArgb(re,gr,bl);
@@ -70,13 +67,11 @@ namespace Lapis.QRCode.Imaging.Drawing
 									int bl = colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF;
 							
 									//Lighten uniformly
-									//re = 255 - (255-re)/6;
-									//gr = 255 - (255-gr)/6;
-									//bl = 255 - (255-bl)/6;
 									
 										double h; double s; double l;
 										RgbToHls(re,gr,bl,out h,out l,out s);
-										l = 1 - (1-l)/5;
+										l = 1 - (1-l)/6;
+										s = 1 - (1-s)/6;
 										HlsToRgb(h, l, s,out re, out gr, out bl);
 							
 									var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
