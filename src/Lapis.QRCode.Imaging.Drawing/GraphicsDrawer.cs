@@ -48,9 +48,8 @@ namespace Lapis.QRCode.Imaging.Drawing
 									re = re;
 									gr = gr;
 									bl = bl;
-							
 									var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
-									graph.FillRectangle(foreBrushCustom, x+cmi, y+cmj, 1,1);
+									graph.FillRectangle(foreBrushCustom, x+cmj, y+cmi, 1,1);
 								}
 							}
                         }
