@@ -52,7 +52,8 @@ namespace Lapis.QRCode.Art
                     int x = Convert.ToInt32(i);
                     int y = Convert.ToInt32(j);
                     int color = bitmap.GetPixel(x, y);
-                    Console.WriteLine(x,y,color);
+                    Console.WriteLine(j);
+                    Console.WriteLine(color);
                     rgb24s[j, i] = color;
                 }
             }
