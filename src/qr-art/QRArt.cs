@@ -135,7 +135,7 @@ namespace Lapis.QrArt
         {
             if (string.IsNullOrWhiteSpace(cell))
             {
-                cellSize = 2;
+                cellSize = 3;
                 return true;
             }
             if (int.TryParse(cell, out cellSize) &&
