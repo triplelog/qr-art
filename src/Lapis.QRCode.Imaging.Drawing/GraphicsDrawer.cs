@@ -21,6 +21,7 @@ namespace Lapis.QRCode.Imaging.Drawing
             int imageWidth = CellSize * rowCount + Margin * 2;
             var bitmap = new Bitmap(imageHeight, imageWidth);
 			Console.WriteLine(CellSize);
+			Console.WriteLine(rowCount);
 			Console.WriteLine(imageHeight);
             using (var graph = Graphics.FromImage(bitmap))
             {
@@ -30,7 +31,6 @@ namespace Lapis.QRCode.Imaging.Drawing
                 var foreBrushB = new SolidBrush(Color.FromArgb(0,0,120));
                 for (var r = 0; r < rowCount; r += 1)
                 {
-                	//Console.WriteLine(colorMatrix[r,50]);
                     for (var c = 0; c < columnCount; c += 1)
                     {
                         if (bitMatrix[r, c])
