@@ -20,9 +20,9 @@ namespace Lapis.QRCode.Art
             if (bitmap == null){
                 throw new ArgumentNullException(nameof(bitmap));
             }
-            var colorMatrix = new ColorMatrix(rowCount*2, columnCount*2);
+            var colorMatrix = new ColorMatrix(rowCount*3, columnCount*3);
 
-            int[,] rgb24s = Sample(bitmap, rowCount*2, columnCount*2);
+            int[,] rgb24s = Sample(bitmap, rowCount*3, columnCount*3);
             for (int i = 0; i < rgb24s.GetLength(0); i++)
             {
                 for (int j = 0; j < rgb24s.GetLength(1); j++)

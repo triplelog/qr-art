@@ -14,7 +14,7 @@ namespace Lapis.QRCode.Imaging.Drawing
         {
             if (bitMatrix == null)
                 throw new ArgumentNullException(nameof(bitMatrix));
-
+			CellSize = 3;
             int rowCount = bitMatrix.RowCount;
             int columnCount = bitMatrix.ColumnCount;
             int imageHeight = CellSize * rowCount + Margin * 2;
@@ -37,11 +37,11 @@ namespace Lapis.QRCode.Imaging.Drawing
                         {
                             var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            for (var cmi = 0;cmi<2;cmi++){
-                            	for (var cmj = 0;cmj<2;cmj++){
-									int re = (colorMatrix[2*r+cmi,2*c+cmj] & 0xFF0000) >> 16;
-									int gr = (colorMatrix[2*r+cmi,2*c+cmj] & 0xFF00) >> 8;
-									int bl = colorMatrix[2*r+cmi,2*c+cmj] & 0xFF;
+                            for (var cmi = 0;cmi<CellSize;cmi++){
+                            	for (var cmj = 0;cmj<CellSize;cmj++){
+									int re = (colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF0000) >> 16;
+									int gr = (colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF00) >> 8;
+									int bl = colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF;
 							
 									//Darken uniformly
 									re = re/5;
@@ -56,11 +56,11 @@ namespace Lapis.QRCode.Imaging.Drawing
                         else {
                         	var x = Margin + c * CellSize;
                             var y = Margin + r * CellSize;
-                            for (var cmi = 0;cmi<2;cmi++){
-                            	for (var cmj = 0;cmj<2;cmj++){
-									int re = (colorMatrix[2*r+cmi,2*c+cmj] & 0xFF0000) >> 16;
-									int gr = (colorMatrix[2*r+cmi,2*c+cmj] & 0xFF00) >> 8;
-									int bl = colorMatrix[2*r+cmi,2*c+cmj] & 0xFF;
+                            for (var cmi = 0;cmi<CellSize;cmi++){
+                            	for (var cmj = 0;cmj<CellSize;cmj++){
+									int re = (colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF0000) >> 16;
+									int gr = (colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF00) >> 8;
+									int bl = colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF;
 							
 									//Darken uniformly
 									re = 255 - (255-re)/5;
