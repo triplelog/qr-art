@@ -44,9 +44,9 @@ namespace Lapis.QRCode.Imaging.Drawing
 									int bl = colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF;
 							
 									//Darken uniformly
-									re = re/5;
-									gr = gr/5;
-									bl = bl/5;
+									re = re/6;
+									gr = gr/6;
+									bl = bl/6;
 									var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
 									graph.FillRectangle(foreBrushCustom, x+cmj, y+cmi, 1,1);
 								}
@@ -62,9 +62,9 @@ namespace Lapis.QRCode.Imaging.Drawing
 									int bl = colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF;
 							
 									//Darken uniformly
-									re = 255 - (255-re)/5;
-									gr = 255 - (255-gr)/5;
-									bl = 255 - (255-bl)/5;
+									re = 255 - (255-re)/6;
+									gr = 255 - (255-gr)/6;
+									bl = 255 - (255-bl)/6;
 							
 									var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
 									graph.FillRectangle(foreBrushCustom, x+cmj, y+cmi, 1,1);
