@@ -45,15 +45,16 @@ namespace Lapis.QRCode.Imaging.Drawing
 									int bl = colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF;
 							
 									//Darken uniformly
-									re = re/6;
-									gr = gr/6;
-									bl = bl/6;
-									Color myColor = Color.FromArgb(re,gr,bl);
-									if ( r<55 && r>50 && c <55 && c>50){
+									//re = re/6;
+									//gr = gr/6;
+									//bl = bl/6;
+									
 										double h; double s; double l;
 										RgbToHls(re,gr,bl,out h,out l,out s);
-										Console.WriteLine(l);
-									}
+										l = l/2;
+										HlsToRgb(h, l, s,out re, out gr, out bl);
+										
+									Color myColor = Color.FromArgb(re,gr,bl);
 									var foreBrushCustom = new SolidBrush(myColor);
 									graph.FillRectangle(foreBrushCustom, x+cmj, y+cmi, 1,1);
 								}
@@ -69,9 +70,14 @@ namespace Lapis.QRCode.Imaging.Drawing
 									int bl = colorMatrix[CellSize*r+cmi,CellSize*c+cmj] & 0xFF;
 							
 									//Lighten uniformly
-									re = 255 - (255-re)/6;
-									gr = 255 - (255-gr)/6;
-									bl = 255 - (255-bl)/6;
+									//re = 255 - (255-re)/6;
+									//gr = 255 - (255-gr)/6;
+									//bl = 255 - (255-bl)/6;
+									
+										double h; double s; double l;
+										RgbToHls(re,gr,bl,out h,out l,out s);
+										l = 1 - (1-l)/2;
+										HlsToRgb(h, l, s,out re, out gr, out bl);
 							
 									var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
 									graph.FillRectangle(foreBrushCustom, x+cmj, y+cmi, 1,1);
