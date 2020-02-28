@@ -50,8 +50,8 @@ namespace Lapis.QRCode.Imaging.Drawing
 									bl = bl/6;
 									Color myColor = Color.FromArgb(re,gr,bl);
 									if ( r<55 && r>50 && c <55 && c>50){
-									
-										var hsl = RgbToHls(re,gr,bl,h,s,l);
+										double h; double s; double l;
+										var hsl = RgbToHls(re,gr,bl,h,l,s);
 									}
 									var foreBrushCustom = new SolidBrush(myColor);
 									graph.FillRectangle(foreBrushCustom, x+cmj, y+cmi, 1,1);
