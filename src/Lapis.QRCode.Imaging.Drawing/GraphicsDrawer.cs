@@ -48,8 +48,8 @@ namespace Lapis.QRCode.Imaging.Drawing
 									
 										double h; double s; double l;
 										RgbToHls(re,gr,bl,out h,out l,out s);
-										l = Math.Pow(l/10,.5);
-										s = 1 - (1-s)/6;
+										l = Math.Pow(l/30,.4);
+										//s = 1 - (1-s)/6;
 										HlsToRgb(h, l, s,out re, out gr, out bl);
 										
 									Color myColor = Color.FromArgb(re,gr,bl);
