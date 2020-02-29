@@ -83,12 +83,8 @@ namespace Lapis.QRCode.Art
                 for (var i=5;i<195;i++){
                 	for (var ii=5;ii<195;ii++){
                 		tripMatrix[i,ii] = imageText.GetPixel(i,ii);
-                		if (tripMatrix[i,ii] != 16777215){
-                			Console.WriteLine(tripMatrix[i,ii]);
-                			nn++;
-                			if (nn>20){
-                				i = 194;
-                			}
+                		if (imageText.GetPixel(i,ii) < 2000000){
+                			tripMatrix[i,ii] = 2;
                 		}
                 	}
                 }
@@ -99,16 +95,16 @@ namespace Lapis.QRCode.Art
                 //		tripMatrix[i,ii] = -1;
                 //	}
                 //}
-                for (var i=50;i<80;i++){
-                	for (var ii=50;ii<80;ii++){
-                		tripMatrix[i,ii] = 2;
-                	}
-                }
-                for (var i=110;i<130;i++){
-                	for (var ii=110;ii<130;ii++){
-                		tripMatrix[i,ii] = 2;
-                	}
-                }
+                //for (var i=50;i<80;i++){
+               // 	for (var ii=50;ii<80;ii++){
+                //		tripMatrix[i,ii] = 2;
+                //	}
+                //}
+                //for (var i=110;i<130;i++){
+                //	for (var ii=110;ii<130;ii++){
+                //		tripMatrix[i,ii] = 2;
+                //	}
+                //}
                 for (var i=5;i<moduleCount * 3-5;i++){
                 	for (var ii=5;ii<moduleCount * 3-5;ii++){
                 		if (tripMatrix[i,ii] == 0){
