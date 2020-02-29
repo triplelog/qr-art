@@ -55,7 +55,7 @@ namespace Lapis.QRCode.Art
         
         public ITripMatrixDrawer TripMatrixDrawer { get; }
 
-        public virtual IImage Create(string data, IRgb24BitmapBase image)
+        public virtual IImage Create(string data, IRgb24BitmapBase image, IRgb24BitmapBase imageText)
         {
             var bitMatrix = QRCodeEncoder.Build(data);
             if (image != null && 2 == 3)
