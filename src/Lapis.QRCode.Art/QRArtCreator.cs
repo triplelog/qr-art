@@ -80,7 +80,7 @@ namespace Lapis.QRCode.Art
                 		tripMatrix[i,ii] = 0;
                 	}
                 }
-                Bitmap bmp = new Bitmap(moduleCount * 3, moduleCount * 3);
+                Bitmap bmp = (Bitmap) new Bitmap(moduleCount * 3, moduleCount * 3);
 				using (Graphics graph = Graphics.FromImage(bmp))
 				{
 					Rectangle ImageSize = new Rectangle(0,0,x,y);
