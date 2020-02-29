@@ -56,8 +56,9 @@ namespace Lapis.QrArt
 					};
 					RectangleF rectf = new RectangleF(10, 10, 100, 50);
 					graph.DrawString("yourText", new Font("Tahoma",8), Brushes.Black, rectf, format);
-					graph.flush();
 				}
+				
+				
                 var bmp = Bitmap.FromFile(imagePath) as Bitmap;
                 bitmap = new BitmapFrame(bmp);
                 return true;
