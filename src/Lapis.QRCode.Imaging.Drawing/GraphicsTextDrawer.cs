@@ -11,7 +11,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 {
     public class GraphicsTextDrawer : BitMatrixDrawerBase
     {
-        public override IImage DrawText(TripMatrix tripMatrix, ColorMatrix colorMatrix)
+        public override IImage Draw(TripMatrix tripMatrix, ColorMatrix colorMatrix)
         {
             if (tripMatrix == null)
                 throw new ArgumentNullException(nameof(tripMatrix));

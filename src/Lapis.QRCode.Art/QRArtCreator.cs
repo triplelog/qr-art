@@ -71,7 +71,7 @@ namespace Lapis.QRCode.Art
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
                 //var imgColorMatrix = new ColorSquare(moduleCount * 3);
                 var tripMatrix = new TripSquare(moduleCount * 3);
-                return BitMatrixDrawer.DrawText(tripMatrix, imgColorMatrix);
+                return BitMatrixDrawer.Draw(tripMatrix, imgColorMatrix);
             }
             else {
             	Console.Out.WriteLine("no image");

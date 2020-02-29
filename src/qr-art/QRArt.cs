@@ -73,6 +73,11 @@ namespace Lapis.QrArt
                 drawer = new GraphicsDrawer();
                 return true;
             }
+            if (format.Equals("txt", StringComparison.OrdinalIgnoreCase))
+            {
+                drawer = new GraphicsTextDrawer();
+                return true;
+            }
             LogError("Format not supported.");
             drawer = null;
             return false;
