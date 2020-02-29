@@ -59,7 +59,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 									
 							double h; double s; double l;
 							RgbToHls(re,gr,bl,out h,out l,out s);
-							l = (l*2)/(tripMatrix[r, c]*Math.Log(l+1.5)/Math.Log(2));
+							l = (l*1)/(tripMatrix[r, c]*Math.Log(l+1.5)/Math.Log(2));
 							//s = 1 - (1-s)/1.25;
 							HlsToRgb(h, l, s,out re, out gr, out bl);
 										
