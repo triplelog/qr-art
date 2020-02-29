@@ -18,7 +18,7 @@ namespace Lapis.QRCode.Art
         public QRArtCreator(
             IQRCodeEncoder qrCodeEncoder,
             IBinarizer binarizer, ITriparizer triparizer, IColorizer colorizer, IMerger merger,
-            IBitMatrixDrawer bitMatrixDrawer, ITripMatrixTextDrawer tripMatrixDrawer)
+            IBitMatrixDrawer bitMatrixDrawer, ITripMatrixDrawer tripMatrixDrawer)
         {
             if (qrCodeEncoder == null)
                 throw new ArgumentNullException(nameof(qrCodeEncoder));
