@@ -79,6 +79,25 @@ namespace Lapis.QRCode.Art
                 		tripMatrix[i,ii] = 0;
                 	}
                 }
+                Bitmap bmp = new Bitmap(moduleCount * 3, moduleCount * 3);
+				using (Graphics graph = Graphics.FromImage(bmp))
+				{
+					Rectangle ImageSize = new Rectangle(0,0,x,y);
+					graph.FillRectangle(Brushes.White, ImageSize);
+					graph.SmoothingMode = SmoothingMode.AntiAlias;
+					graph.InterpolationMode = InterpolationMode.HighQualityBicubic;
+					graph.PixelOffsetMode = PixelOffsetMode.HighQuality;
+					graph.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
+					StringFormat format = new StringFormat()
+					{
+						Alignment = StringAlignment.Center,
+						LineAlignment = StringAlignment.Center
+					};
+					RectangleF rectf = new RectangleF(10, 10, 100, 50);
+					graph.DrawString("yourText", new Font("Tahoma",8), Brushes.Black, rectf, format);
+					graph.flush();
+				}
+
                 //for (var i=40;i<90;i++){
                 //	for (var ii=40;ii<90;ii++){
                 //		var d = 50-i
@@ -92,7 +111,7 @@ namespace Lapis.QRCode.Art
                 }
                 for (var i=110;i<130;i++){
                 	for (var ii=110;ii<130;ii++){
-                		tripMatrix[i,ii] = 3;
+                		tripMatrix[i,ii] = 2;
                 	}
                 }
                 for (var i=5;i<moduleCount * 3-5;i++){
