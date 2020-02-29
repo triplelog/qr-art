@@ -54,6 +54,7 @@ namespace Lapis.QrArt
                                 ErrorCorrectLevel = errcor
                             },
                             new Binarizer(),
+                            new Triparizer(),
                             new Colorizer(),
                             new Merger(),
                             drawer

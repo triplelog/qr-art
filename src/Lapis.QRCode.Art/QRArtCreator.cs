@@ -26,6 +26,8 @@ namespace Lapis.QRCode.Art
                 throw new ArgumentNullException(nameof(binarizer));
             if (colorizer == null)
                 throw new ArgumentNullException(nameof(colorizer));
+            if (triparizer == null)
+                throw new ArgumentNullException(nameof(triparizer));
             if (merger == null)
                 throw new ArgumentNullException(nameof(merger));
             if (bitMatrixDrawer == null)
