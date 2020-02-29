@@ -80,14 +80,14 @@ namespace Lapis.QRCode.Art
                 	}
                 }
                 var nn = 0;
-                for (var i=0;i<200;i++){
-                	for (var ii=0;ii<200;ii++){
+                for (var i=5;i<195;i++){
+                	for (var ii=5;ii<195;ii++){
                 		tripMatrix[i,ii] = imageText.GetPixel(i,ii);
                 		if (tripMatrix[i,ii] != 16777215){
                 			Console.WriteLine(tripMatrix[i,ii]);
                 			nn++;
                 			if (nn>20){
-                				i = 199;
+                				i = 194;
                 			}
                 		}
                 	}
