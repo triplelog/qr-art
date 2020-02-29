@@ -79,10 +79,17 @@ namespace Lapis.QRCode.Art
                 		tripMatrix[i,ii] = 0;
                 	}
                 }
-                for (var i=10;i<20;i++){
-                	for (var ii=10;ii<20;ii++){
+                var nn = 0;
+                for (var i=0;i<200;i++){
+                	for (var ii=0;ii<200;ii++){
                 		tripMatrix[i,ii] = imageText.GetPixel(i,ii);
-                		Console.WriteLine(tripMatrix[i,ii]);
+                		if (tripMatrix[i,ii] != 16777215){
+                			Console.WriteLine(tripMatrix[i,ii]);
+                			nn++;
+                			if (nn>20){
+                				i = 201;
+                			}
+                		}
                 	}
                 }
 
