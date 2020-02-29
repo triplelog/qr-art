@@ -105,7 +105,7 @@ namespace Lapis.QRCode.Art
 								}
 							}
 							if (minDist < 51){
-								tripMatrix[i,ii] = (d-60)/2;
+								tripMatrix[i,ii] = (minDist-60)/2;
 							}
                 		}
                 	}
