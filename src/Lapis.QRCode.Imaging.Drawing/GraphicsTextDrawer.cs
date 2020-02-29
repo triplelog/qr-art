@@ -16,10 +16,10 @@ namespace Lapis.QRCode.Imaging.Drawing
             if (tripMatrix == null)
                 throw new ArgumentNullException(nameof(tripMatrix));
 			
-            int rowCount = tripMatrix.RowCount;
-            int columnCount = tripMatrix.ColumnCount;
-            int imageHeight = CellSize * rowCount + Margin * 2;
-            int imageWidth = CellSize * rowCount + Margin * 2;
+            int rowCount = colorMatrix.RowCount;
+            int columnCount = colorMatrix.ColumnCount;
+            int imageHeight = rowCount + Margin * 2;
+            int imageWidth = rowCount + Margin * 2;
             var bitmap = new Bitmap(imageHeight, imageWidth);
 			Console.WriteLine(CellSize);
 			Console.WriteLine(rowCount);
@@ -30,9 +30,9 @@ namespace Lapis.QRCode.Imaging.Drawing
                 //var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24(Foreground));
                 var foreBrush = new SolidBrush(Color.FromArgb(40,40,40));
                 var foreBrushB = new SolidBrush(Color.FromArgb(0,0,120));
-                for (var r = 0; r < rowCount * 3; r += 1)
+                for (var r = 0; r < rowCount; r += 1)
                 {
-                    for (var c = 0; c < columnCount * 3; c += 1)
+                    for (var c = 0; c < columnCount; c += 1)
                     {
                         if (r >= 500 || c >= 500 || tripMatrix[r, c] == 0)
                         {
