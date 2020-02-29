@@ -82,29 +82,12 @@ namespace Lapis.QRCode.Art
                 var nn = 0;
                 for (var i=5;i<195;i++){
                 	for (var ii=5;ii<195;ii++){
-                		tripMatrix[i,ii] = imageText.GetPixel(i,ii);
-                		if (imageText.GetPixel(i,ii) < 2000000){
+                		if (imageText.GetPixel(i,ii) > 2000000){
                 			tripMatrix[i,ii] = 2;
                 		}
                 	}
                 }
 
-                //for (var i=40;i<90;i++){
-                //	for (var ii=40;ii<90;ii++){
-                //		var d = 50-i
-                //		tripMatrix[i,ii] = -1;
-                //	}
-                //}
-                //for (var i=50;i<80;i++){
-               // 	for (var ii=50;ii<80;ii++){
-                //		tripMatrix[i,ii] = 2;
-                //	}
-                //}
-                //for (var i=110;i<130;i++){
-                //	for (var ii=110;ii<130;ii++){
-                //		tripMatrix[i,ii] = 2;
-                //	}
-                //}
                 for (var i=5;i<moduleCount * 3-5;i++){
                 	for (var ii=5;ii<moduleCount * 3-5;ii++){
                 		if (tripMatrix[i,ii] == 0){
