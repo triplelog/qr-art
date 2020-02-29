@@ -1,7 +1,6 @@
 using Lapis.QRCode.Encoding;
 using Lapis.QRCode.Imaging;
 using System;
-using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -80,24 +79,7 @@ namespace Lapis.QRCode.Art
                 		tripMatrix[i,ii] = 0;
                 	}
                 }
-                Bitmap bmp = (Bitmap) new Bitmap(moduleCount * 3, moduleCount * 3);
-				using (Graphics graph = Graphics.FromImage(bmp))
-				{
-					Rectangle ImageSize = new Rectangle(0,0,x,y);
-					graph.FillRectangle(Brushes.White, ImageSize);
-					graph.SmoothingMode = SmoothingMode.AntiAlias;
-					graph.InterpolationMode = InterpolationMode.HighQualityBicubic;
-					graph.PixelOffsetMode = PixelOffsetMode.HighQuality;
-					graph.TextRenderingHint = TextRenderingHint.AntiAliasGridFit;
-					StringFormat format = new StringFormat()
-					{
-						Alignment = StringAlignment.Center,
-						LineAlignment = StringAlignment.Center
-					};
-					RectangleF rectf = new RectangleF(10, 10, 100, 50);
-					graph.DrawString("yourText", new Font("Tahoma",8), Brushes.Black, rectf, format);
-					graph.flush();
-				}
+                
 
                 //for (var i=40;i<90;i++){
                 //	for (var ii=40;ii<90;ii++){
