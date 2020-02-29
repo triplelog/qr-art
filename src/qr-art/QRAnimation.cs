@@ -43,7 +43,7 @@ namespace Lapis.QrArt
 
         private static bool CheckFormatAnimation(string format, out IBitMatrixDrawer drawer, out ITripMatrixDrawer textDrawer)
         {
-        	tripDrawer = null;
+        	textDrawer = null;
             if (format == null)
             {
                 LogError("Format required.");
