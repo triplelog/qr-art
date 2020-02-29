@@ -55,8 +55,8 @@ namespace Lapis.QrArt
 						Alignment = StringAlignment.Center,
 						LineAlignment = StringAlignment.Center
 					};
-					RectangleF rectf = new RectangleF(10, 10, 300, 150);
-					graph.DrawString("Text", new Font("Tahoma",20), Brushes.Black, rectf, format);
+					RectangleF rectf = new RectangleF(10, 10, 480, 480);
+					graph.DrawString("Text", new Font("Tahoma",60), Brushes.Black, rectf, format);
 				}
 				bitmapText = new BitmapFrame(bmpp);
 				
