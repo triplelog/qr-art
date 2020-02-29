@@ -2,6 +2,7 @@ using System;
 using System.IO;
 using System.Drawing;
 using System.Drawing.Drawing2D;
+using System.Drawing.Text;
 using Microsoft.Extensions.CommandLineUtils;
 using Lapis.QRCode.Encoding;
 using Lapis.QRCode.Art;
