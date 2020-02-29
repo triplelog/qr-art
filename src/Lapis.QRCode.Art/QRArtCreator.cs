@@ -2,7 +2,6 @@ using Lapis.QRCode.Encoding;
 using Lapis.QRCode.Imaging;
 using System;
 using System.Drawing;
-using System.Drawing.Imaging;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -81,7 +80,7 @@ namespace Lapis.QRCode.Art
                 		tripMatrix[i,ii] = 0;
                 	}
                 }
-                var bmp = new Bitmap(moduleCount * 3, moduleCount * 3);
+                Bitmap bmp = new Bitmap(moduleCount * 3, moduleCount * 3);
 				using (Graphics graph = Graphics.FromImage(bmp))
 				{
 					Rectangle ImageSize = new Rectangle(0,0,x,y);
