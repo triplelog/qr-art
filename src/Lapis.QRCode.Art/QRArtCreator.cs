@@ -94,8 +94,8 @@ namespace Lapis.QRCode.Art
                 	for (var ii=5;ii<moduleCount * 3-5;ii++){
                 		if (tripMatrix[i,ii] == 0){
                 			var minDist = 999;
-                			for (var iii=i-5;iii<i+5;iii++){
-								for (var iiii=ii-5;iiii<ii+5;iiii++){
+                			for (var iii=i-5;iii<i+6;iii++){
+								for (var iiii=ii-5;iiii<ii+6;iiii++){
 									if (tripMatrix[iii,iiii] > 0){
 										var d = (i-iii)*(i-iii)+(ii-iiii)*(ii-iiii);
 										if (d< minDist){
