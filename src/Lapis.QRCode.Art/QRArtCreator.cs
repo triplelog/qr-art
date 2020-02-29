@@ -87,7 +87,12 @@ namespace Lapis.QRCode.Art
                 //}
                 for (var i=50;i<80;i++){
                 	for (var ii=50;ii<80;ii++){
-                		tripMatrix[i,ii] = 1;
+                		tripMatrix[i,ii] = 2;
+                	}
+                }
+                for (var i=110;i<130;i++){
+                	for (var ii=110;ii<130;ii++){
+                		tripMatrix[i,ii] = 3;
                 	}
                 }
                 for (var i=5;i<moduleCount * 3-5;i++){
