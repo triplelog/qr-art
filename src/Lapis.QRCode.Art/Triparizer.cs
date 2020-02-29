@@ -10,7 +10,7 @@ namespace Lapis.QRCode.Art
 {
     public interface ITriparizer
     {
-        BitMatrix Triparize(IRgb24BitmapBase bitmap, int rowCount, int columnCount);
+        TripMatrix Triparize(IRgb24BitmapBase bitmap, int rowCount, int columnCount);
     }
 
     public class Triparizer : ITriparizer
