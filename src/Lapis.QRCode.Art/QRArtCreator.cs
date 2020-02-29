@@ -79,10 +79,10 @@ namespace Lapis.QRCode.Art
                 		tripMatrix[i,ii] = 0;
                 	}
                 }
-                var nn = 0;
+                
                 for (var i=5;i<195;i++){
                 	for (var ii=5;ii<195;ii++){
-                		if (imageText.GetPixel(i,ii) > 2000000){
+                		if (imageText.GetPixel(i,ii) < 2000000){
                 			tripMatrix[i,ii] = 2;
                 		}
                 	}
