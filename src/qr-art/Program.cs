@@ -39,7 +39,7 @@ namespace Lapis.QrArt
                 {                    
                     if (CheckContent(contentArg.Value) &&
                         CheckImagePath(imageArg.Value, out var bitmap) &&
-                        CheckFormat(formatArg.Value, out var drawer) &&
+                        CheckFormat(formatArg.Value, out var drawer, out var textDrawer) &&
                         CheckType(typeOpt.Value(), out var type) &&
                         CheckErrorCorrectLevel(errcorOpt.Value(), out var errcor) &&
                         CheckForeground(foregdOpt.Value(), out var foregd) &&
@@ -57,7 +57,8 @@ namespace Lapis.QrArt
                             new Triparizer(),
                             new Colorizer(),
                             new Merger(),
-                            drawer
+                            drawer,
+                            textDrawer
                         );
                         {
                             drawer.CellSize = cell;
@@ -83,7 +84,7 @@ namespace Lapis.QrArt
                 {
                     if (CheckContent(contentArg.Value) &&
                         CheckImagePathAnimation(imageArg.Value, out var animation) &&
-                        CheckFormatAnimation(formatArg.Value, out var drawer) &&
+                        CheckFormatAnimation(formatArg.Value, out var drawer, out var textDrawer) &&
                         CheckType(typeOpt.Value(), out var type) &&
                         CheckErrorCorrectLevel(errcorOpt.Value(), out var errcor) &&
                         CheckForeground(foregdOpt.Value(), out var foregd) &&
@@ -102,6 +103,7 @@ namespace Lapis.QrArt
                             new Colorizer(),
                             new Merger(),
                             drawer,
+                            textDrawer,
                             // frames => new BitmapImage(frames.Select(f => f as BitmapFrame))
                             frames => new Rgb24Bitmap(frames.Select(f => f as Rgb24BitmapFrame))
                         );

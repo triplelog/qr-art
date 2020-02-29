@@ -50,8 +50,9 @@ namespace Lapis.QrArt
             }
         }
 
-        private static bool CheckFormat(string format, out IBitMatrixDrawer drawer)
+        private static bool CheckFormat(string format, out IBitMatrixDrawer drawer, out ITripMatrixDrawer textDrawer)
         {
+        	textDrawer = new GraphicsTextDrawer();
             if (format == null)
             {
                 LogError("Format required.");
@@ -75,11 +76,13 @@ namespace Lapis.QrArt
             }
             if (format.Equals("txt", StringComparison.OrdinalIgnoreCase))
             {
-                drawer = new GraphicsTextDrawer();
+                textDrawer = new GraphicsTextDrawer();
+                drawer = new GraphicsDrawer();
                 return true;
             }
             LogError("Format not supported.");
             drawer = null;
+            textDrawer = null;
             return false;
         }
 

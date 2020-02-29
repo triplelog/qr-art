@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Lapis.QRCode.Imaging.Drawing
 {
-    public class GraphicsTextDrawer : BitMatrixDrawerBase
+    public class GraphicsTextDrawer : TripMatrixDrawerBase
     {
         public override IImage Draw(TripMatrix tripMatrix, ColorMatrix colorMatrix)
         {
