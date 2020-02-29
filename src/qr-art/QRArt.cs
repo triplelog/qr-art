@@ -41,10 +41,10 @@ namespace Lapis.QrArt
             }
             try
             {
-            	Bitmap bmpp = (Bitmap) new Bitmap(600,600);
+            	Bitmap bmpp = (Bitmap) new Bitmap(500,500);
 				using (Graphics graph = Graphics.FromImage(bmpp))
 				{
-					Rectangle ImageSize = new Rectangle(0,0,600,600);
+					Rectangle ImageSize = new Rectangle(0,0,500,500);
 					graph.FillRectangle(Brushes.White, ImageSize);
 					graph.SmoothingMode = SmoothingMode.AntiAlias;
 					graph.InterpolationMode = InterpolationMode.HighQualityBicubic;

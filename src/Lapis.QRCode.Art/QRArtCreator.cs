@@ -73,23 +73,23 @@ namespace Lapis.QRCode.Art
                 //var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
                 //var imgColorMatrix = new ColorSquare(moduleCount * 3);
-                var tripMatrix = new TripSquare(600);
-                for (var i=0;i<600;i++){
-                	for (var ii=0;ii<600;ii++){
+                var tripMatrix = new TripSquare(500);
+                for (var i=0;i<500;i++){
+                	for (var ii=0;ii<500;ii++){
                 		tripMatrix[i,ii] = 0;
                 	}
                 }
                 
-                for (var i=5;i<595;i++){
-                	for (var ii=5;ii<595;ii++){
+                for (var i=5;i<495;i++){
+                	for (var ii=5;ii<495;ii++){
                 		if (imageText.GetPixel(i,ii) < 2000000){
                 			tripMatrix[ii,i] = 2;
                 		}
                 	}
                 }
 
-                for (var i=5;i<600-5;i++){
-                	for (var ii=5;ii<600-5;ii++){
+                for (var i=5;i<500-5;i++){
+                	for (var ii=5;ii<500-5;ii++){
                 		if (tripMatrix[i,ii] == 0){
                 			var minDist = 999;
                 			for (var iii=i-5;iii<i+6;iii++){
