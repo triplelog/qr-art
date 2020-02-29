@@ -83,7 +83,7 @@ namespace Lapis.QRCode.Art
                 for (var i=5;i<195;i++){
                 	for (var ii=5;ii<195;ii++){
                 		if (imageText.GetPixel(i,ii) < 2000000){
-                			tripMatrix[i,ii] = 2;
+                			tripMatrix[ii,i] = 2;
                 		}
                 	}
                 }
@@ -102,8 +102,8 @@ namespace Lapis.QRCode.Art
 									}
 								}
 							}
-							if (minDist < 51){
-								tripMatrix[i,ii] = (2*minDist-150)/5;
+							if (minDist < 26){
+								tripMatrix[i,ii] = (4*minDist-150)/5;
 							}
                 		}
                 	}
