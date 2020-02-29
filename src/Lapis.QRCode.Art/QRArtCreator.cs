@@ -17,7 +17,7 @@ namespace Lapis.QRCode.Art
     {
         public QRArtCreator(
             IQRCodeEncoder qrCodeEncoder,
-            IBinarizer binarizer, IColorizer colorizer, IMerger merger,
+            IBinarizer binarizer, ITriparizer triparizer, IColorizer colorizer, IMerger merger,
             IBitMatrixDrawer bitMatrixDrawer)
         {
             if (qrCodeEncoder == null)
@@ -32,6 +32,7 @@ namespace Lapis.QRCode.Art
                 throw new ArgumentNullException(nameof(bitMatrixDrawer));
             QRCodeEncoder = qrCodeEncoder;
             Binarizer = binarizer;
+            Triparizer = triparizer;
             Colorizer = colorizer;
             Merger = merger;
             BitMatrixDrawer = bitMatrixDrawer;
@@ -40,6 +41,8 @@ namespace Lapis.QRCode.Art
         public IQRCodeEncoder QRCodeEncoder { get; }
 
         public IBinarizer Binarizer { get; }
+        
+        public ITriparizer Triparizer { get; }
         
         public IColorizer Colorizer { get; }
 
@@ -50,7 +53,16 @@ namespace Lapis.QRCode.Art
         public virtual IImage Create(string data, IRgb24BitmapBase image)
         {
             var bitMatrix = QRCodeEncoder.Build(data);
-            if (image != null)
+            if (image != null && 2 == 3)
+            {
+                int moduleCount = bitMatrix.Size;
+                var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
+                var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
+                //var imgColorMatrix = new ColorSquare(moduleCount * 3);
+                bitMatrix = Merger.Merge(bitMatrix, QRCodeEncoder.TypeNumber, imgBitMatrix);
+                return BitMatrixDrawer.Draw(bitMatrix, imgColorMatrix);
+            }
+            else if (image != null)
             {
                 int moduleCount = bitMatrix.Size;
                 var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);

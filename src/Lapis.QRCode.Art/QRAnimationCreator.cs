@@ -12,10 +12,10 @@ namespace Lapis.QRCode.Art
     {
         public QRAnimationCreator(
             IQRCodeEncoder qrCodeEncoder,
-            IBinarizer binarizer, IColorizer colorizer, IMerger merger,
+            IBinarizer binarizer, ITriparizer Triparizer, IColorizer colorizer, IMerger merger,
             IBitMatrixDrawer bitMatrixDrawer,
             Func<IReadOnlyList<IRgb24BitmapFrame>, IRgb24BitmapBase> frameMerger)
-            : base(qrCodeEncoder, binarizer, colorizer, merger, bitMatrixDrawer)
+            : base(qrCodeEncoder, binarizer, triparizer, colorizer, merger, bitMatrixDrawer)
         {
             FrameMerger = frameMerger;
         }
