@@ -38,7 +38,7 @@ namespace Lapis.QrArt
                 if (!animationOpt.HasValue())
                 {                    
                     if (CheckContent(contentArg.Value) &&
-                        CheckImagePath(imageArg.Value, out var bitmap) &&
+                        CheckImagePath(imageArg.Value, out var bitmap, out var bitmapText) &&
                         CheckFormat(formatArg.Value, out var drawer, out var textDrawer) &&
                         CheckType(typeOpt.Value(), out var type) &&
                         CheckErrorCorrectLevel(errcorOpt.Value(), out var errcor) &&
@@ -67,7 +67,7 @@ namespace Lapis.QrArt
                             drawer.Background = backgd;
                         }
 						
-                        var image = builder.Create(contentArg.Value, bitmap);
+                        var image = builder.Create(contentArg.Value, bitmap, bitmapText);
                         //bitmap.Save("static/newbmp1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         
                         Write(image, pathArg.Value ??

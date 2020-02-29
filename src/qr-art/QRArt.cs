@@ -25,8 +25,9 @@ namespace Lapis.QrArt
             return true;
         }
 
-        private static bool CheckImagePath(string imagePath, out IRgb24BitmapBase bitmap)
+        private static bool CheckImagePath(string imagePath, out IRgb24BitmapBase bitmap, out IRgb24BitmapBase bitmapText)
         {
+        	bitmapText = null;
             if (imagePath == null)
             {
                 bitmap = null;
@@ -57,6 +58,7 @@ namespace Lapis.QrArt
 					RectangleF rectf = new RectangleF(10, 10, 100, 50);
 					graph.DrawString("yourText", new Font("Tahoma",8), Brushes.Black, rectf, format);
 				}
+				bitmapText = bmpp;
 				
 				
                 var bmp = Bitmap.FromFile(imagePath) as Bitmap;

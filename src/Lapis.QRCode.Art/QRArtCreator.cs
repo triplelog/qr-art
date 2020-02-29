@@ -10,7 +10,7 @@ namespace Lapis.QRCode.Art
 {
     public interface IQRArtCreator
     {
-        IImage Create(string data, IRgb24BitmapBase image);
+        IImage Create(string data, IRgb24BitmapBase image, IRgb24BitmapBase imageText);
     }
 
     public class QRArtCreator : IQRArtCreator
