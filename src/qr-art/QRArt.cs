@@ -40,8 +40,8 @@ namespace Lapis.QrArt
             }
             try
             {
-            	Bitmap bmp = (Bitmap) new Bitmap(200,200);
-				using (Graphics graph = Graphics.FromImage(bmp))
+            	Bitmap bmpp = (Bitmap) new Bitmap(200,200);
+				using (Graphics graph = Graphics.FromImage(bmpp))
 				{
 					Rectangle ImageSize = new Rectangle(0,0,200,200);
 					graph.FillRectangle(Brushes.White, ImageSize);
