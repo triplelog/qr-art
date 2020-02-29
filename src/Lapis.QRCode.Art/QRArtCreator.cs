@@ -1,6 +1,7 @@
 using Lapis.QRCode.Encoding;
 using Lapis.QRCode.Imaging;
 using System;
+using System.Drawing;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
