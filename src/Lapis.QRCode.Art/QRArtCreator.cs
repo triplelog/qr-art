@@ -67,11 +67,11 @@ namespace Lapis.QRCode.Art
             else if (image != null)
             {
                 int moduleCount = bitMatrix.Size;
-                var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
+                //var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
                 //var imgColorMatrix = new ColorSquare(moduleCount * 3);
-                bitMatrix = Merger.Merge(bitMatrix, QRCodeEncoder.TypeNumber, imgBitMatrix);
-                return BitMatrixDrawer.Draw(bitMatrix, imgColorMatrix);
+                var tripMatrix = new TripSquare(moduleCount * 3);
+                return BitMatrixDrawer.DrawText(tripMatrix, imgColorMatrix);
             }
             else {
             	Console.Out.WriteLine("no image");
