@@ -87,7 +87,7 @@ namespace Lapis.QRCode.Art
                 			Console.WriteLine(tripMatrix[i,ii]);
                 			nn++;
                 			if (nn>20){
-                				i = 201;
+                				i = 199;
                 			}
                 		}
                 	}
