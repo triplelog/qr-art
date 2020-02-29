@@ -41,8 +41,9 @@ namespace Lapis.QrArt
             }
         }
 
-        private static bool CheckFormatAnimation(string format, out IBitMatrixDrawer drawer)
+        private static bool CheckFormatAnimation(string format, out IBitMatrixDrawer drawer, out ITripMatrixDrawer textDrawer)
         {
+        	tripDrawer = null;
             if (format == null)
             {
                 LogError("Format required.");
@@ -57,6 +58,7 @@ namespace Lapis.QrArt
             }
             LogError("Only gif format is supported for animated QR code.");
             drawer = null;
+            
             return false;
         }
     }
