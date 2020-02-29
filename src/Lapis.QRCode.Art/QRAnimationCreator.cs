@@ -48,7 +48,7 @@ namespace Lapis.QRCode.Art
                 return FrameMerger(frames);                
             }
             else
-                return base.Create(data, image);
+                return base.Create(data, image, imageText);
         }
     }
 }
