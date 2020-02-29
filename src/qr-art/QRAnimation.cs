@@ -13,8 +13,9 @@ namespace Lapis.QrArt
 {
     partial class Program
     {
-        private static bool CheckImagePathAnimation(string imagePath, out IRgb24Bitmap animation)
+        private static bool CheckImagePathAnimation(string imagePath, out IRgb24Bitmap animation, out IRgb24Bitmap animationText)
         {
+        	animationText = null;
             if (imagePath == null)
             {
                 animation = null;

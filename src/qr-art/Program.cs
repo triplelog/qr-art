@@ -83,7 +83,7 @@ namespace Lapis.QrArt
                 else
                 {
                     if (CheckContent(contentArg.Value) &&
-                        CheckImagePathAnimation(imageArg.Value, out var animation) &&
+                        CheckImagePathAnimation(imageArg.Value, out var animation, out var animationText) &&
                         CheckFormatAnimation(formatArg.Value, out var drawer, out var textDrawer) &&
                         CheckType(typeOpt.Value(), out var type) &&
                         CheckErrorCorrectLevel(errcorOpt.Value(), out var errcor) &&
@@ -114,7 +114,7 @@ namespace Lapis.QrArt
                             drawer.Background = backgd;
                         }
 
-                        var image = builder.Create(contentArg.Value, animation);
+                        var image = builder.Create(contentArg.Value, animation, animationText);
                                                 
                         Write(image, pathArg.Value ??
                             (imageArg.Value == null ? "output." + formatArg.Value :
