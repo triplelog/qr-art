@@ -88,8 +88,8 @@ namespace Lapis.QRCode.Art
                 	}
                 }
 
-                for (var i=5;i<500-5;i++){
-                	for (var ii=5;ii<500-5;ii++){
+                for (var i=10;i<500-10;i++){
+                	for (var ii=10;ii<500-10;ii++){
                 		if (tripMatrix[i,ii] == 0){
                 			var minDist = 999;
                 			for (var iii=i-10;iii<i+11;iii++){
