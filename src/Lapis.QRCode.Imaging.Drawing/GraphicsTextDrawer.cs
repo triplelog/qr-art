@@ -34,7 +34,7 @@ namespace Lapis.QRCode.Imaging.Drawing
                 {
                     for (var c = 0; c < columnCount * 3; c += 1)
                     {
-                        if (tripMatrix[r, c] == 0)
+                        if (r >= 600 || c >= 600 || tripMatrix[r, c] == 0)
                         {
                             var x = Margin + c;
                             var y = Margin + r;
