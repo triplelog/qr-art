@@ -22,10 +22,11 @@ namespace Lapis.QRCode.Imaging.Drawing
             int imageHeight = rowCount + Margin * 2;
             int imageWidth = rowCount + Margin * 2;
             var bitmap = new Bitmap(imageHeight, imageWidth);
+            var bmp = Bitmap.FromFile("test.jpeg") as Bitmap;
 			Console.WriteLine(CellSize);
 			Console.WriteLine(rowCount);
 			Console.WriteLine(imageHeight);
-            using (var graph = Graphics.FromImage(bitmap))
+            using (var graph = Graphics.FromImage(bmp))
             {
                 graph.Clear(ColorHelper.FromIntRgb24(Background));
                 //var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24(Foreground));
@@ -51,7 +52,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 								
 							foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
 							graph.FillRectangle(foreBrushCustom, x, y, 1,1);*/
-							graph.FillRectangle(foreBrush, x, y, 1,1);
+							//graph.FillRectangle(foreBrush, x, y, 1,1);
                         }
                         else if (tripMatrix[r, c] > 0)
                         {
