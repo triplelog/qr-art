@@ -74,8 +74,7 @@ namespace Lapis.QRCode.Art
             }
             else if (image != null) //text on image
             {
-            	Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
+            	
         		
                 int moduleCount = bitMatrix.Size;
                 //var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
@@ -94,7 +93,8 @@ namespace Lapis.QRCode.Art
                 }
                 
                
-				
+				Stopwatch stopWatch = new Stopwatch();
+        		stopWatch.Start();
 				
 				
                 for (var i=5;i<495;i++){
