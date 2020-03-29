@@ -78,7 +78,22 @@ namespace Lapis.QRCode.Art
         		
                 int moduleCount = bitMatrix.Size;
                 //var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
+                Stopwatch stopWatch = new Stopwatch();
+        		stopWatch.Start();
+        		
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
+                
+                stopWatch.Stop();
+				// Get the elapsed time as a TimeSpan value.
+				TimeSpan ts = stopWatch.Elapsed;
+
+				// Format and display the TimeSpan value.
+				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+					ts.Hours, ts.Minutes, ts.Seconds,
+					ts.Milliseconds / 10);
+				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
+				
+				
                 //var imgColorMatrix = new ColorSquare(moduleCount * 3);
                 var tripMatrix = new TripSquare(500);
                 
@@ -93,8 +108,7 @@ namespace Lapis.QRCode.Art
                 }
                 
                
-				Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
+				
 				
 				
                 for (var i=5;i<495;i++){
@@ -112,15 +126,7 @@ namespace Lapis.QRCode.Art
                 }
 				
 				
-				stopWatch.Stop();
-				// Get the elapsed time as a TimeSpan value.
-				TimeSpan ts = stopWatch.Elapsed;
-
-				// Format and display the TimeSpan value.
-				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-					ts.Hours, ts.Minutes, ts.Seconds,
-					ts.Milliseconds / 10);
-				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
+				
 				
         		
                 for (var i=10;i<500-10;i++){
