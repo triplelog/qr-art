@@ -18,13 +18,13 @@ namespace Lapis.QRCode.Imaging.Drawing
                 throw new ArgumentNullException(nameof(tripMatrix));
 			
 			Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
+        	stopWatch.Start();
         		
             int rowCount = colorMatrix.RowCount;
             int columnCount = colorMatrix.ColumnCount;
             int imageHeight = rowCount + Margin * 2;
             int imageWidth = rowCount + Margin * 2;
-            var bitmap = new Bitmap(imageHeight, imageWidth);
+            //var bitmap = new Bitmap(imageHeight, imageWidth);
             var bmp = Bitmap.FromFile("test.jpeg") as Bitmap;
 			Console.WriteLine(CellSize);
 			Console.WriteLine(rowCount);
@@ -103,10 +103,10 @@ namespace Lapis.QRCode.Imaging.Drawing
 				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
 					ts.Hours, ts.Minutes, ts.Seconds,
 					ts.Milliseconds / 10);
-				Console.WriteLine("RunTime " + elapsedTime);
+				Console.WriteLine("GraphicsTextDrawerTime " + elapsedTime);
             }
 
-            return new BitmapFrame(bitmap);
+            return new BitmapFrame(bmp);
         }     
         
         public static void RgbToHls(int r, int g, int b,

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Drawing.Imaging;
@@ -13,9 +14,22 @@ namespace Lapis.QRCode.Imaging.Drawing
     {
         public BitmapFrame(Bitmap bitmap)
         {
+        	Stopwatch stopWatch = new Stopwatch();
+        	stopWatch.Start();
+        	
             if (bitmap == null)
                 throw new ArgumentNullException(nameof(bitmap));
             Bitmap = bitmap;
+            
+            stopWatch.Stop();
+				// Get the elapsed time as a TimeSpan value.
+				TimeSpan ts = stopWatch.Elapsed;
+
+				// Format and display the TimeSpan value.
+				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+					ts.Hours, ts.Minutes, ts.Seconds,
+					ts.Milliseconds / 10);
+				Console.WriteLine("BitmapFrameTime " + elapsedTime);
         }
 
         public Bitmap Bitmap { get; }

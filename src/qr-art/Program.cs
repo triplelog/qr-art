@@ -48,6 +48,10 @@ namespace Lapis.QrArt
                         CheckCell(cellOpt.Value(), out var cell) &&
                         CheckMargin(marginOpt.Value(), out var margin))
                     {
+                    	Stopwatch stopWatch = new Stopwatch();
+        				stopWatch.Start();
+        				Console.WriteLine("Start Program ");
+        				
                         var builder = new QRArtCreator(
                             new QRCodeEncoder()
                             {
@@ -68,9 +72,7 @@ namespace Lapis.QrArt
                             drawer.Background = backgd;
                         }
 						
-						Stopwatch stopWatch = new Stopwatch();
-        				stopWatch.Start();
-        				Console.WriteLine("Start Program ");
+						
         				
         				
                         var image = builder.Create(contentArg.Value, bitmap, bitmapText);
