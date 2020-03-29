@@ -107,7 +107,7 @@ namespace Lapis.QRCode.Art
         		
                 for (var i=10;i<500-10;i++){
                 	for (var ii=10;ii<500-10;ii++){
-                		/*
+                		
                 		if (tripMatrix[i,ii] == 0){
                 			var minDist = 999;
                 			for (var iii=i-10;iii<i+11;iii++){
@@ -124,7 +124,7 @@ namespace Lapis.QRCode.Art
 								tripMatrix[i,ii] = (2*minDist-150)/5;
 							}
                 		}
-                		*/
+                		/*
                 		if (tripMatrix[i,ii] > 0){
                 			for (var iii=i-10;iii<i+11;iii++){
 								for (var iiii=ii-10;iiii<ii+11;iiii++){
@@ -146,6 +146,7 @@ namespace Lapis.QRCode.Art
 								}
 							}
                 		}
+                		*/
                 	}
                 }
                 
