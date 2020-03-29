@@ -58,6 +58,8 @@ namespace Lapis.QRCode.Art
 
         public virtual IImage Create(string data, IRgb24BitmapBase image, IRgb24BitmapBase imageText)
         {
+        	Stopwatch stopWatch = new Stopwatch();
+        	stopWatch.Start();
             var bitMatrix = QRCodeEncoder.Build(data);
             if (image != null && 2 == 3) //qr code
             {
@@ -102,8 +104,7 @@ namespace Lapis.QRCode.Art
                 	}
                 }
 				
-				Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
+				
         		
                 for (var i=10;i<500-10;i++){
                 	for (var ii=10;ii<500-10;ii++){
