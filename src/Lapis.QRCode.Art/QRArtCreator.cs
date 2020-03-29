@@ -103,19 +103,11 @@ namespace Lapis.QRCode.Art
                 			tripMatrix[ii,i] = 3;
                 		}
                 	}
-                }
+                }//~110 ms for this double loop
 				
 				
 				
-				stopWatch.Stop();
-				// Get the elapsed time as a TimeSpan value.
-				TimeSpan ts = stopWatch.Elapsed;
 				
-				// Format and display the TimeSpan value.
-				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-					ts.Hours, ts.Minutes, ts.Seconds,
-					ts.Milliseconds / 10);
-				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
         		
                 for (var i=10;i<500-10;i++){
                 	for (var ii=10;ii<500-10;ii++){
@@ -163,7 +155,15 @@ namespace Lapis.QRCode.Art
                 	}
                 }
                 
-                
+                stopWatch.Stop();
+				// Get the elapsed time as a TimeSpan value.
+				TimeSpan ts = stopWatch.Elapsed;
+				
+				// Format and display the TimeSpan value.
+				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+					ts.Hours, ts.Minutes, ts.Seconds,
+					ts.Milliseconds / 10);
+				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
                 
                 
                 return TripMatrixDrawer.Draw(tripMatrix, imgColorMatrix);
