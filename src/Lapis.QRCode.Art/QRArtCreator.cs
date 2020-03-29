@@ -125,7 +125,7 @@ namespace Lapis.QRCode.Art
 							}
                 		}
                 		*/
-                		/*
+                		
                 		if (tripMatrix[i,ii] > 0){
                 			for (var iii=i-10;iii<i+11;iii++){
 								for (var iiii=ii-10;iiii<ii+11;iiii++){
@@ -147,7 +147,7 @@ namespace Lapis.QRCode.Art
 								}
 							}
                 		}
-                		*/
+                		
                 	}
                 }
                 
