@@ -33,6 +33,7 @@ namespace Lapis.QRCode.Imaging.Drawing
                 var foreBrushB = new SolidBrush(Color.FromArgb(0,0,120));
                 Stopwatch stopWatch = new Stopwatch();
         		stopWatch.Start();
+        		var foreBrushCustom = new SolidBrush(Color.FromArgb(0,0,120));
                 for (var r = 0; r < rowCount; r += 1)
                 {
                     for (var c = 0; c < columnCount; c += 1)
@@ -46,8 +47,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 							int bl = colorMatrix[r,c] & 0xFF;
 
 								
-							Color myColor = Color.FromArgb(re,gr,bl);
-							var foreBrushCustom = new SolidBrush(myColor);
+							foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
 							graph.FillRectangle(foreBrushCustom, x, y, 1,1);
                         }
                         else if (tripMatrix[r, c] > 0)
@@ -59,15 +59,14 @@ namespace Lapis.QRCode.Imaging.Drawing
 							int bl = colorMatrix[r,c] & 0xFF;
 							
 							//Darken uniformly
-									/*
+									
 							double h; double s; double l;
 							RgbToHls(re,gr,bl,out h,out l,out s);
 							l = (l*1)/(tripMatrix[r, c]*Math.Log(l+1.5)/Math.Log(2));
 							//s = 1 - (1-s)/1.25;
 							HlsToRgb(h, l, s,out re, out gr, out bl);
-										*/
-							Color myColor = Color.FromArgb(re,gr,bl);
-							var foreBrushCustom = new SolidBrush(myColor);
+										
+							foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
 							graph.FillRectangle(foreBrushCustom, x, y, 1,1);
                         }
                         else {
@@ -78,14 +77,14 @@ namespace Lapis.QRCode.Imaging.Drawing
 							int bl = colorMatrix[r,c] & 0xFF;
 							
 							//Lighten uniformly
-							/*
+							
 							double h; double s; double l;
 							RgbToHls(re,gr,bl,out h,out l,out s);
 							//l = 1 - (1-l)/6;
 							l = 1 - (1-l)*10/(-1*tripMatrix[r, c]*Math.Log((1-l)+1.5)/Math.Log(2));
 							HlsToRgb(h, l, s,out re, out gr, out bl);
-							*/
-							var foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
+							
+							foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
 							graph.FillRectangle(foreBrushCustom, x, y, 1,1);
                         }
                     }
