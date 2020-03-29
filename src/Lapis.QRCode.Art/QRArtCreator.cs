@@ -83,15 +83,7 @@ namespace Lapis.QRCode.Art
         		
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
                 
-                stopWatch.Stop();
-				// Get the elapsed time as a TimeSpan value.
-				TimeSpan ts = stopWatch.Elapsed;
-
-				// Format and display the TimeSpan value.
-				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-					ts.Hours, ts.Minutes, ts.Seconds,
-					ts.Milliseconds / 10);
-				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
+                
 				
 				
                 //var imgColorMatrix = new ColorSquare(moduleCount * 3);
@@ -107,7 +99,15 @@ namespace Lapis.QRCode.Art
                 	}
                 }
                 
-               
+                stopWatch.Stop();
+				// Get the elapsed time as a TimeSpan value.
+				TimeSpan ts = stopWatch.Elapsed;
+
+				// Format and display the TimeSpan value.
+				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+					ts.Hours, ts.Minutes, ts.Seconds,
+					ts.Milliseconds / 10);
+				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
 				
 				
 				
