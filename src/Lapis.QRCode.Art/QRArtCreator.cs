@@ -75,11 +75,11 @@ namespace Lapis.QRCode.Art
             else if (image != null) //text on image
             {
             	
-        		
+        		Stopwatch stopWatch = new Stopwatch();
+        		stopWatch.Start();
                 int moduleCount = bitMatrix.Size;
                 //var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
-                Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
+                
         		
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
                 
