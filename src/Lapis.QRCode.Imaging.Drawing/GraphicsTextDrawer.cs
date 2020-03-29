@@ -12,7 +12,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 {
     public class GraphicsTextDrawer : TripMatrixDrawerBase
     {
-        public override IImage Draw(TripMatrix tripMatrix, ColorMatrix colorMatrix, IRgb24BitmapBase baseImage)
+        public override IImage Draw(TripMatrix tripMatrix, ColorMatrix colorMatrix)
         {
             if (tripMatrix == null)
                 throw new ArgumentNullException(nameof(tripMatrix));

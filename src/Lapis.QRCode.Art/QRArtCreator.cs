@@ -161,7 +161,7 @@ namespace Lapis.QRCode.Art
 					ts.Milliseconds / 10);
 				Console.WriteLine("RunTime " + elapsedTime);
                 
-                return TripMatrixDrawer.Draw(tripMatrix, imgColorMatrix, image);
+                return TripMatrixDrawer.Draw(tripMatrix, imgColorMatrix);
             }
             else {
             	Console.Out.WriteLine("no image");
