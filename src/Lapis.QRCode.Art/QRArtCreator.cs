@@ -59,7 +59,7 @@ namespace Lapis.QRCode.Art
         public virtual IImage Create(string data, IRgb24BitmapBase image, IRgb24BitmapBase imageText)
         {
             var bitMatrix = QRCodeEncoder.Build(data);
-            if (image != null && 2 == 3)
+            if (image != null && 2 == 3) //qr code
             {
                 int moduleCount = bitMatrix.Size;
                 var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
@@ -68,7 +68,7 @@ namespace Lapis.QRCode.Art
                 bitMatrix = Merger.Merge(bitMatrix, QRCodeEncoder.TypeNumber, imgBitMatrix);
                 return BitMatrixDrawer.Draw(bitMatrix, imgColorMatrix);
             }
-            else if (image != null)
+            else if (image != null) //text on image
             {
             	
         		
@@ -161,7 +161,7 @@ namespace Lapis.QRCode.Art
 					ts.Milliseconds / 10);
 				Console.WriteLine("RunTime " + elapsedTime);
                 
-                return TripMatrixDrawer.Draw(tripMatrix, imgColorMatrix);
+                return TripMatrixDrawer.Draw(tripMatrix, imgColorMatrix, image);
             }
             else {
             	Console.Out.WriteLine("no image");

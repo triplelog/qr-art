@@ -12,7 +12,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 {
     public class GraphicsTextDrawer : TripMatrixDrawerBase
     {
-        public override IImage Draw(TripMatrix tripMatrix, ColorMatrix colorMatrix)
+        public override IImage Draw(TripMatrix tripMatrix, ColorMatrix colorMatrix, IRgb24BitmapBase baseImage)
         {
             if (tripMatrix == null)
                 throw new ArgumentNullException(nameof(tripMatrix));
@@ -40,6 +40,7 @@ namespace Lapis.QRCode.Imaging.Drawing
                     {
                         if (r >= 500 || c >= 500 || tripMatrix[r, c] == 0)
                         {
+                        	/*
                             var x = Margin + c;
                             var y = Margin + r;
 							int re = (colorMatrix[r,c] & 0xFF0000) >> 16;
@@ -48,7 +49,8 @@ namespace Lapis.QRCode.Imaging.Drawing
 
 								
 							foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
-							graph.FillRectangle(foreBrushCustom, x, y, 1,1);
+							graph.FillRectangle(foreBrushCustom, x, y, 1,1);*/
+							graph.SetPixel(x,y,colorMatrix[r,c]);
                         }
                         else if (tripMatrix[r, c] > 0)
                         {
