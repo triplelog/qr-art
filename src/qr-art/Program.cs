@@ -68,9 +68,24 @@ namespace Lapis.QrArt
                             drawer.Background = backgd;
                         }
 						
+						Stopwatch stopWatch = new Stopwatch();
+        				stopWatch.Start();
+        				Console.WriteLine("Start Program ");
+        				
+        				
                         var image = builder.Create(contentArg.Value, bitmap, bitmapText);
                         //bitmap.Save("static/newbmp1.jpg", System.Drawing.Imaging.ImageFormat.Jpeg);
                         
+                         stopWatch.Stop();
+						// Get the elapsed time as a TimeSpan value.
+						TimeSpan ts = stopWatch.Elapsed;
+
+						// Format and display the TimeSpan value.
+						string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+							ts.Hours, ts.Minutes, ts.Seconds,
+							ts.Milliseconds / 10);
+						Console.WriteLine("FullTime " + elapsedTime);
+						
                         Write(image, pathArg.Value ??
                             (imageArg.Value == null ? "output." + formatArg.Value :
                             Path.Combine(Path.GetDirectoryName(imageArg.Value), 
@@ -114,21 +129,11 @@ namespace Lapis.QrArt
                             drawer.Foreground = foregd;
                             drawer.Background = backgd;
                         }
-						Stopwatch stopWatch = new Stopwatch();
-        				stopWatch.Start();
-        				Console.WriteLine("Start Program ");
+						
         				
                         var image = builder.Create(contentArg.Value, animation, animationText);
                         
-                        stopWatch.Stop();
-						// Get the elapsed time as a TimeSpan value.
-						TimeSpan ts = stopWatch.Elapsed;
-
-						// Format and display the TimeSpan value.
-						string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-							ts.Hours, ts.Minutes, ts.Seconds,
-							ts.Milliseconds / 10);
-						Console.WriteLine("FullTime " + elapsedTime);
+                       
                                                 
                         Write(image, pathArg.Value ??
                             (imageArg.Value == null ? "output." + formatArg.Value :
