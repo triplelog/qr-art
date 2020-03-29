@@ -58,7 +58,8 @@ namespace Lapis.QRCode.Art
 
         public virtual IImage Create(string data, IRgb24BitmapBase image, IRgb24BitmapBase imageText)
         {
-        	
+        	Stopwatch stopWatch = new Stopwatch();
+        	stopWatch.Start();
             var bitMatrix = QRCodeEncoder.Build(data);
             
             if (image != null && 2 == 3) //qr code
@@ -92,8 +93,7 @@ namespace Lapis.QRCode.Art
                 
                
 				
-				Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
+				
 				
                 for (var i=5;i<495;i++){
                 	for (var ii=5;ii<495;ii++){
@@ -109,15 +109,7 @@ namespace Lapis.QRCode.Art
                 	}
                 }
 				
-				stopWatch.Stop();
-				// Get the elapsed time as a TimeSpan value.
-				TimeSpan ts = stopWatch.Elapsed;
-
-				// Format and display the TimeSpan value.
-				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-					ts.Hours, ts.Minutes, ts.Seconds,
-					ts.Milliseconds / 10);
-				Console.WriteLine("RunTime " + elapsedTime);
+				
 				
 				
         		
@@ -167,7 +159,15 @@ namespace Lapis.QRCode.Art
                 	}
                 }
                 
-                
+                stopWatch.Stop();
+				// Get the elapsed time as a TimeSpan value.
+				TimeSpan ts = stopWatch.Elapsed;
+
+				// Format and display the TimeSpan value.
+				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+					ts.Hours, ts.Minutes, ts.Seconds,
+					ts.Milliseconds / 10);
+				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
                 
                 return TripMatrixDrawer.Draw(tripMatrix, imgColorMatrix);
             }
