@@ -75,41 +75,21 @@ namespace Lapis.QRCode.Art
             else if (image != null) //text on image
             {
             	
-        		Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
-                int moduleCount = bitMatrix.Size;
-                //var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
-                
         		
+                int moduleCount = bitMatrix.Size;
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
-                
-                
-				
-				
-                //var imgColorMatrix = new ColorSquare(moduleCount * 3);
                 var tripMatrix = new TripSquare(500);
-                
-                
-				
-				
         		
                 for (var i=0;i<500;i++){
                 	for (var ii=0;ii<500;ii++){
                 		tripMatrix[i,ii] = 0;
                 	}
-                }
+                }//~20 ms since else if
                 
-                stopWatch.Stop();
-				// Get the elapsed time as a TimeSpan value.
-				TimeSpan ts = stopWatch.Elapsed;
-
-				// Format and display the TimeSpan value.
-				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
-					ts.Hours, ts.Minutes, ts.Seconds,
-					ts.Milliseconds / 10);
-				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
+                
 				
-				
+				Stopwatch stopWatch = new Stopwatch();
+        		stopWatch.Start();
 				
                 for (var i=5;i<495;i++){
                 	for (var ii=5;ii<495;ii++){
@@ -127,7 +107,15 @@ namespace Lapis.QRCode.Art
 				
 				
 				
+				stopWatch.Stop();
+				// Get the elapsed time as a TimeSpan value.
+				TimeSpan ts = stopWatch.Elapsed;
 				
+				// Format and display the TimeSpan value.
+				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+					ts.Hours, ts.Minutes, ts.Seconds,
+					ts.Milliseconds / 10);
+				Console.WriteLine("QRArtCreatorTime " + elapsedTime);
         		
                 for (var i=10;i<500-10;i++){
                 	for (var ii=10;ii<500-10;ii++){
