@@ -125,6 +125,27 @@ namespace Lapis.QRCode.Art
 							}
                 		}
                 		*/
+                		if (tripMatrix[i,ii] > 0){
+                			for (var iii=i-10;iii<i+11;iii++){
+								for (var iiii=ii-10;iiii<ii+11;iiii++){
+									if (tripMatrix[iii,iiii] == 0){
+										var d = (i-iii)*(i-iii)+(ii-iiii)*(ii-iiii);
+										if ( d < 51){
+										tripMatrix[iii,iiii] = (2*d-150)/5;
+										}
+									}
+									else if (tripMatrix[iii,iiii] < 0){
+										var d = (i-iii)*(i-iii)+(ii-iiii)*(ii-iiii);
+										if ( d < 51 ){
+											var dd = (2*d-150)/5;
+											if (dd < tripMatrix[iii,iiii]) {
+												tripMatrix[iii,iiii] = dd;
+											}
+										}
+									}
+								}
+							}
+                		}
                 	}
                 }
                 
