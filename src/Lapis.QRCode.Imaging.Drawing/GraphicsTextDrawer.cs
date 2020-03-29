@@ -1,5 +1,6 @@
 using Lapis.QRCode.Encoding;
 using System;
+using System.Diagnostics;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -30,6 +31,8 @@ namespace Lapis.QRCode.Imaging.Drawing
                 //var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24(Foreground));
                 var foreBrush = new SolidBrush(Color.FromArgb(40,40,40));
                 var foreBrushB = new SolidBrush(Color.FromArgb(0,0,120));
+                Stopwatch stopWatch = new Stopwatch();
+        		stopWatch.Start();
                 for (var r = 0; r < rowCount; r += 1)
                 {
                     for (var c = 0; c < columnCount; c += 1)
@@ -87,6 +90,15 @@ namespace Lapis.QRCode.Imaging.Drawing
                         }
                     }
                 }
+                stopWatch.Stop();
+				// Get the elapsed time as a TimeSpan value.
+				TimeSpan ts = stopWatch.Elapsed;
+
+				// Format and display the TimeSpan value.
+				string elapsedTime = String.Format("{0:00}:{1:00}:{2:00}.{3:00}",
+					ts.Hours, ts.Minutes, ts.Seconds,
+					ts.Milliseconds / 10);
+				Console.WriteLine("RunTime " + elapsedTime);
             }
 
             return new BitmapFrame(bitmap);
