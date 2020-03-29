@@ -115,7 +115,7 @@ namespace Lapis.QrArt
                         }
 						Stopwatch stopWatch = new Stopwatch();
         				stopWatch.Start();
-        				Console.WriteLine("Start Program ";
+        				Console.WriteLine("Start Program ");
         				
                         var image = builder.Create(contentArg.Value, animation, animationText);
                         
