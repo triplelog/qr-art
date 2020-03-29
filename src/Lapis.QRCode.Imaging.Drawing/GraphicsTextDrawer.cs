@@ -40,9 +40,10 @@ namespace Lapis.QRCode.Imaging.Drawing
                     {
                         if (r >= 500 || c >= 500 || tripMatrix[r, c] == 0)
                         {
-                        	/*
+                        	
                             var x = Margin + c;
                             var y = Margin + r;
+                            /*
 							int re = (colorMatrix[r,c] & 0xFF0000) >> 16;
 							int gr = (colorMatrix[r,c] & 0xFF00) >> 8;
 							int bl = colorMatrix[r,c] & 0xFF;
@@ -50,7 +51,7 @@ namespace Lapis.QRCode.Imaging.Drawing
 								
 							foreBrushCustom = new SolidBrush(Color.FromArgb(re,gr,bl));
 							graph.FillRectangle(foreBrushCustom, x, y, 1,1);*/
-							graph.SetPixel(x,y,colorMatrix[r,c]);
+							graph.FillRectangle(foreBrush, x, y, 1,1);
                         }
                         else if (tripMatrix[r, c] > 0)
                         {
