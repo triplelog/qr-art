@@ -73,8 +73,7 @@ namespace Lapis.QRCode.Art
             else if (image != null) //text on image
             {
             	
-        		Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
+        		
                 int moduleCount = bitMatrix.Size;
                 //var imgBitMatrix = Binarizer.Binarize(image, moduleCount * 3, moduleCount * 3);
                 var imgColorMatrix = Colorizer.Colorize(image, moduleCount * 3, moduleCount * 3);
@@ -82,7 +81,17 @@ namespace Lapis.QRCode.Art
                 var tripMatrix = new TripSquare(500);
                 
                 
-				stopWatch.Stop();
+				
+				Stopwatch stopWatch = new Stopwatch();
+        		stopWatch.Start();
+        		
+                for (var i=0;i<500;i++){
+                	for (var ii=0;ii<500;ii++){
+                		tripMatrix[i,ii] = 0;
+                	}
+                }
+                
+                stopWatch.Stop();
 				// Get the elapsed time as a TimeSpan value.
 				TimeSpan ts = stopWatch.Elapsed;
 
@@ -92,13 +101,7 @@ namespace Lapis.QRCode.Art
 					ts.Milliseconds / 10);
 				Console.WriteLine("RunTime " + elapsedTime);
 				
-        		
-                for (var i=0;i<500;i++){
-                	for (var ii=0;ii<500;ii++){
-                		tripMatrix[i,ii] = 0;
-                	}
-                }
-                
+				
                 for (var i=5;i<495;i++){
                 	for (var ii=5;ii<495;ii++){
                 		if (imageText.GetPixel(i,ii) < 12000000){
