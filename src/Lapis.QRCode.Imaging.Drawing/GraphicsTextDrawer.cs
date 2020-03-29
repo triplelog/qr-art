@@ -17,6 +17,9 @@ namespace Lapis.QRCode.Imaging.Drawing
             if (tripMatrix == null)
                 throw new ArgumentNullException(nameof(tripMatrix));
 			
+			Stopwatch stopWatch = new Stopwatch();
+        		stopWatch.Start();
+        		
             int rowCount = colorMatrix.RowCount;
             int columnCount = colorMatrix.ColumnCount;
             int imageHeight = rowCount + Margin * 2;
@@ -32,8 +35,7 @@ namespace Lapis.QRCode.Imaging.Drawing
                 //var foreBrush = new SolidBrush(ColorHelper.FromIntRgb24(Foreground));
                 var foreBrush = new SolidBrush(Color.FromArgb(40,40,40));
                 var foreBrushB = new SolidBrush(Color.FromArgb(0,0,120));
-                Stopwatch stopWatch = new Stopwatch();
-        		stopWatch.Start();
+                
         		var foreBrushCustom = new SolidBrush(Color.FromArgb(0,0,120));
                 for (var r = 0; r < rowCount; r += 1)
                 {
